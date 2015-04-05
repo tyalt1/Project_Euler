@@ -4,13 +4,14 @@
 ;;Boolean Checks
 (defn prime?
   "Returns if n is prime."
-  [n] (cond (= n 2)   true
-            (= n 1)   false
-            (even? n) false
-            :else     (let [root (num (numeric/sqrt n))]
-                        (loop [i 3] (cond (> i root) true
-                                          (zero? (mod n i)) false
-                                          :else (recur (+ i 2)))))))
+  [n] (let [n (max n (- n))]
+        (cond (= n 2)   true
+              (= n 1)   false
+              (even? n) false
+              :else     (let [root (num (numeric/sqrt n))]
+                          (loop [i 3] (cond (> i root) true
+                                            (zero? (mod n i)) false
+                                            :else (recur (+ i 2))))))))
 
 ;;Digit Manip
 (defn digit-list
@@ -81,3 +82,7 @@
         (if (= i 0)
           result
           (recur (dec i) (* result i)))))
+
+(defn abs
+  "Returns the absolute value of n."
+  [n] (max n (- n)))

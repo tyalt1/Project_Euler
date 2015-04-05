@@ -427,9 +427,29 @@
 
 
 ;;Problem 27
+;;For ints a, b where their abs value is less then 1000.
+;;Find the product of a and b where the function n^2+an+b yeilds the most primes.
+(defn pe027 []
+  (let [quad (fn [a b n] (+ (* n n) (* a n) b))
+        consecutive-primes (fn [a b] (loop [n 0, xs []]
+                                       (let [ans (quad a b n)]
+                                         (if (pelib/prime? ans)
+                                             (recur (inc n) (conj xs ans))
+                                             xs))))]
+    (->>
+      (for [a (range -999 1000)
+            b (range -999 1000)
+            :let [c (count (consecutive-primes a b))]
+            :when (> c 65)]
+        (list (* a b) c))
+      (sort-by second >)
+      (first)
+      (first))))
+
+
+;;Problem 28
 ;;
-;(defn pe027 [])
-(print-pe-solution 27)
+;(defn pe028 [] )
 
 
 ;;Problem 67
