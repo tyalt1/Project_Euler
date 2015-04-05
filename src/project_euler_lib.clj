@@ -4,7 +4,7 @@
 ;;Boolean Checks
 (defn prime?
   "Returns if n is prime."
-  [n] (let [n (max n (- n))]
+  [n] (let [n (numeric/abs n)]
         (cond (= n 2)   true
               (= n 1)   false
               (even? n) false
@@ -82,7 +82,3 @@
         (if (= i 0)
           result
           (recur (dec i) (* result i)))))
-
-(defn abs
-  "Returns the absolute value of n."
-  [n] (max n (- n)))
