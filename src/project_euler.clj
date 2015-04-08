@@ -459,6 +459,17 @@
   (reduce + 1 (for [n (range 3 1002 2)] (+ (* 4 n n) (* -1 6 n) 6))))
 
 
+;;Problem 29
+;;Find all the unique solutions to a^b where 2<=a<=100 and 2<=b<=100
+(defn pe029 []
+  (->> (for [a (range 2 101)]
+         (for [b (range 2 101)]
+           (numeric/expt a b)))
+    (flatten)
+    (set)
+    (count)))
+
+
 ;;Problem 67
 ;;Same as problem 18, but with a larger tree. Stored in "src/p067_triangle.txt".
 (defn pe067 []

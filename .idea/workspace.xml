@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d888b5c4-4c75-45bb-8d5a-a6d9dfbea882" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/project_euler.clj" afterPath="$PROJECT_DIR$/src/project_euler.clj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Project_Euler.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,8 +27,8 @@
       <file leaf-file-name="project_euler.clj" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/project_euler.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46245733">
-              <caret line="445" column="13" selection-start-line="445" selection-start-column="13" selection-end-line="445" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.7389079">
+              <caret line="471" column="0" selection-start-line="471" selection-start-column="0" selection-end-line="471" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -103,9 +102,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -176,6 +173,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -895,13 +894,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/contrib/math/numeric_tower.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="29" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/project_euler_lib.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -910,10 +902,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/contrib/math/numeric_tower.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6399317">
+          <caret line="64" column="24" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/project_euler.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46245733">
-          <caret line="445" column="13" selection-start-line="445" selection-start-column="13" selection-end-line="445" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.7389079">
+          <caret line="471" column="0" selection-start-line="471" selection-start-column="0" selection-end-line="471" selection-end-column="0" />
           <folding />
         </state>
       </provider>
