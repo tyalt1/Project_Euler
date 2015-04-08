@@ -448,8 +448,15 @@
 
 
 ;;Problem 28
-;;
-;(defn pe028 [] )
+;;Given a spiral of numbers that is 1001x1001, find the sum of the diagnals.
+;; Eaxample spiral of 5x5:
+; 21 22 23 24 25
+; 20  7  8  9 10
+; 19  6  1  2 11
+; 18  5  4  3 12
+; 17 16 15 14 13 The sum of the diagnals of this spiral is 101.
+(defn pe028 []
+  (reduce + 1 (for [n (range 3 1002 2)] (+ (* 4 n n) (* -1 6 n) 6))))
 
 
 ;;Problem 67
