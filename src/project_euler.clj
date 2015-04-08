@@ -468,6 +468,13 @@
     (count)))
 
 
+;;Project 30
+;;Find the sum of all numbers that can be represented as the sum of (to the fifth power) of it's digits.
+(defn pe030 []
+  (let [f (fn [x] (apply + (map #(numeric/expt % 5) (pelib/digit-list x))))]
+    (apply + (for [n (range 2 1000000), :when (= n (f n))] n))))
+
+
 ;;Problem 67
 ;;Same as problem 18, but with a larger tree. Stored in "src/p067_triangle.txt".
 (defn pe067 []
