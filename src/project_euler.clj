@@ -462,9 +462,7 @@
 ;;Problem 29
 ;;Find all the unique solutions to a^b where 2<=a<=100 and 2<=b<=100
 (defn pe029 []
-  (->> (for [a (range 2 101)]
-         (for [b (range 2 101)]
-           (numeric/expt a b)))
+  (->> (for [a (range 2 101), b (range 2 101)] (numeric/expt a b))
     (flatten)
     (set)
     (count)))
