@@ -475,6 +475,23 @@
     (apply + (for [n (range 2 1000000), :when (= n (f n))] n))))
 
 
+;;Problem 31
+;;In England there are 8 types of pence coins: 1p, 2p, 5p, 10p, 20p, 50p, 100p, 200p.
+;;How many ways can you make 2 pounds, or 200 pence? (Using any number of coins.)
+(defn change [c v]
+  (let [f (first c)]
+    (if (= f 1)
+        1
+        (reduce + (for [n (range 0 (inc (quot v f)))]
+                       (change (rest c) (- v (* n f))))))))
+
+(defn pe031 []
+  (let [target 200
+        coins [200 100 50 20 10 5 2 1]]
+    (change coins target)
+    ))
+
+
 ;;Problem 67
 ;;Same as problem 18, but with a larger tree. Stored in "src/p067_triangle.txt".
 (defn pe067 []
