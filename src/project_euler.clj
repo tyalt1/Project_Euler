@@ -488,8 +488,26 @@
 (defn pe031 []
   (let [target 200
         coins [200 100 50 20 10 5 2 1]]
-    (change coins target)
-    ))
+    (change coins target)))
+
+
+;;Problem 32
+;;A pandigital number is a number that makes use of all 1 to n digits. 12345 is pandigital where n is 5.
+;;The product 7254 and be written as 39*186=7254, the digits of these are pandigital (ust 1 to 9)
+;;Find the sum of all products where their multiplicand/multiplier/product is pandigital.
+(defn pe032 []
+  (let [pandigital? (fn [lst] (let [s (count (flatten lst))
+                                    dv (sort (flatten lst))]
+                                (and (= s 9) (apply distinct? dv) (= 1 (first dv)) (= 9 (last dv)))))]
+    (->> (for [i (range 2 5000)
+               j (range i (/ 9999 i))
+               :let [r (* i j)]
+               :when (pandigital? (list (pelib/digit-list i)
+                                        (pelib/digit-list j)
+                                        (pelib/digit-list r)))]
+           r)
+      (set)
+      (apply +))))
 
 
 ;;Problem 67
