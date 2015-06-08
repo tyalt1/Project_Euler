@@ -509,6 +509,23 @@
       (apply +))))
 
 
+;;Problem 33
+;;Curious fractions are fractions where the digits beng canceld is valid.
+;;Example: 49/98 = 4/8
+;;There are four non-trivial examples, where the numerator or denominator are 2 digits.
+;;Find the product of these for fractions and (in lowest common terms) find the denominator.
+(defn pe033 []
+  (->> (for [i (range 1 10)
+             d (range 1 i)
+             n (range 1 d)
+             ;;via math (10n + i)/(10i + d) = n/d
+             :let [lside (/ (+ (* 10 n) i) (+ (* 10 i) d)), rside (/ n d)]
+             :when (= lside rside)]
+         rside)
+    (apply *)
+    (denominator)))
+
+
 ;;Problem 67
 ;;Same as problem 18, but with a larger tree. Stored in "src/p067_triangle.txt".
 (defn pe067 []
