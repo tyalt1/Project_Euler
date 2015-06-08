@@ -526,6 +526,17 @@
     (denominator)))
 
 
+;;Problem 34
+;;A curious number is where the sum of the factorials of the numbers digits is equal to that number.
+;;Find the sum of all the curious numbers.
+(defn pe034 []
+  (apply +
+    (for [i (range 10 45000) ;;arbitrary upper bound
+          :let [fac-sum (apply + (map pelib/factorial (pelib/digit-list i)))]
+          :when (= i fac-sum)]
+      i)))
+
+
 ;;Problem 67
 ;;Same as problem 18, but with a larger tree. Stored in "src/p067_triangle.txt".
 (defn pe067 []
