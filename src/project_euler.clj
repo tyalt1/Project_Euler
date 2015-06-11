@@ -39,12 +39,7 @@
 ;;Prob 4 from Project Euler
 ;;Find the plandromic number of 2 3-digit numbers
 (defn pe004 []
-  (let [digit-list-palindrome? (fn [digits] (loop [d digits]
-                                              (cond
-                                                (< (count d) 2) true
-                                                (= (first d) (last d)) (recur (drop-last (drop 1 d)))
-                                                :else false)))]
-    (->> (for [i (range 100 1000), j (range 100 1000), :let [x (* i j)], :when (digit-list-palindrome? (pelib/digit-list x))] x) (apply max))))
+    (->> (for [i (range 100 1000), j (range 100 1000), :let [x (* i j)], :when (pelib/seq-palindrome? (pelib/digit-list x))] x) (apply max)))
 
 
 ;;Prob 5 from Project Euler
@@ -546,9 +541,7 @@
                       (map (fn [prime] (rotations (pelib/digit-list prime))))
                       (map (fn [rots] (map pelib/from-digit-list rots)))
                       (filter (fn [rots] (every? identity (map pelib/prime? rots))))
-                      (count)
-                   )))
-(print-pe-solution 35)
+                      (count))))
 
 
 ;;Problem 67

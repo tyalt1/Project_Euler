@@ -33,6 +33,15 @@
                                  number
                                  (recur (rest digits) (+ (* number base) (first digits)))))))))
 
+;;Sequence Manip
+(defn seq-palindrome?
+  "Returns true if the list is a palindrome.
+  Uses = to check for equality of ends."
+  [seq] (loop [xs seq] (cond
+                         (< (count xs) 2)         true
+                         (= (first xs) (last xs)) (recur (drop-last (drop 1 xs)))
+                         :else                    false)))
+
 ;;Lazy Sequences
 (defn lazy-fib
   "Returns a lazy seqence of fibonacci numbers.
