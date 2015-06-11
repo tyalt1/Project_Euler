@@ -537,6 +537,20 @@
       i)))
 
 
+;;Problem 35
+;;A circular prime is a number were all of a numbers digit rotations are prime.
+;;197 is a circular prime because 197, 971, and 719 are all primes.
+;;How many circular primes are there below 1 million?
+(defn pe035 [] (let [rotations (fn [xs] (take (count xs) (partition (count xs) 1 (cycle xs))))]
+                 (->> (take-while #(< % 1000000) (pelib/lazy-primes))
+                      (map (fn [prime] (rotations (pelib/digit-list prime))))
+                      (map (fn [rots] (map pelib/from-digit-list rots)))
+                      (filter (fn [rots] (every? identity (map pelib/prime? rots))))
+                      (count)
+                   )))
+(print-pe-solution 35)
+
+
 ;;Problem 67
 ;;Same as problem 18, but with a larger tree. Stored in "src/p067_triangle.txt".
 (defn pe067 []
