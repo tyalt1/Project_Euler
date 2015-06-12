@@ -553,6 +553,25 @@
                  (apply +)))
 
 
+;;Problem 37
+;;Truncatable primes are numbers that are prime ever when you remove digits.
+;;Ex. 3797 is a truncatable prime because 3797, 797, 97, and 7 are all prime.
+;;Ex. 3797 is a truncatable prime because 3797, 379, 37, and 3 are all prime.
+;;Notice you can go from left to right or right to left.
+;;Find the sum of all 11 trucatable primes (both left to right and right to left)
+(defn pe037 [] (let [truc-ltor (fn [x] (let [digits (pelib/digit-list x)]
+                                         (for [i (range (count digits))]
+                                           (pelib/from-digit-list (drop i digits)))))
+                     truc-rtol (fn [x] (let [digits (pelib/digit-list x)]
+                                         (for [i (range 1 (inc (count digits)))]
+                                           (pelib/from-digit-list (take i digits)))))]
+                 (->>
+                   (drop 4 (take-while #(< % 750000) (pelib/lazy-primes)))
+                   (filter (fn [n] (every? pelib/prime? (truc-ltor n))))
+                   (filter (fn [n] (every? pelib/prime? (truc-rtol n))))
+                   (apply +))))
+
+
 ;;Problem 67
 ;;Same as problem 18, but with a larger tree. Stored in "src/p067_triangle.txt".
 (defn pe067 []
