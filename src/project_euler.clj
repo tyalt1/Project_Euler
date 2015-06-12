@@ -540,8 +540,17 @@
                  (->> (take-while #(< % 1000000) (pelib/lazy-primes))
                       (map (fn [prime] (rotations (pelib/digit-list prime))))
                       (map (fn [rots] (map pelib/from-digit-list rots)))
-                      (filter (fn [rots] (every? identity (map pelib/prime? rots))))
+                      (filter (fn [rots] (every? pelib/prime? rots)))
                       (count))))
+
+
+;;Problem 36
+;;Find the sum of all the numbers under 1 million that are palindromic in both base-10 and base-2.
+(defn pe036 [] (->>
+                 (range 1 1000000)
+                 (filter (fn [n] (pelib/seq-palindrome? (pelib/digit-list n 10))))
+                 (filter (fn [n] (pelib/seq-palindrome? (pelib/digit-list n 2))))
+                 (apply +)))
 
 
 ;;Problem 67
