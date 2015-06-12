@@ -11,10 +11,14 @@
   "A function for printing the solution to a Project Euler problem.
   Gets function from number, assuming fucntion is called pe??? where ??? is 3-digit problem number with leading zeros.
   If the funtion does not exsist then it will print 'no solution'."
-  [problem-number]
-  (let [solution-func (try (eval (symbol (format "pe%03d" problem-number)))
-                           (catch RuntimeException e (fn [] "no solution")))]
-    (time (println "Project Euler problem" problem-number ":" (solution-func)))))
+  [& problem-number] (let [solution-func (fn [n] (try (eval (symbol (format "pe%03d" n)))
+                                                      (catch RuntimeException e (fn [] "no solution"))))]
+                       (do
+                         (println (apply str (flatten (list (repeat 15 "=") "BEGIN" (repeat 15 "=")))))
+                         (doseq [n problem-number]
+                           (do
+                             (time (println "Project Euler problem" n ":" ((solution-func n))))
+                             (println (apply str (repeat 35 "="))))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
