@@ -1,18 +1,6 @@
 (ns project_euler_lib "Useful functions for Project Euler probelms."
   (:require [contrib.math.numeric-tower :as numeric]))
 
-;;Boolean Checks
-(defn prime?
-  "Returns if n is prime."
-  [n] (let [n (numeric/abs n)]
-        (cond (= n 2)   true
-              (= n 1)   false
-              (even? n) false
-              :else     (let [root (num (numeric/sqrt n))]
-                          (loop [i 3] (cond (> i root) true
-                                            (zero? (mod n i)) false
-                                            :else (recur (+ i 2))))))))
-
 ;;Digit Manip
 (defn digit-list
   "Takes number n and returns a vector of it's digits.
@@ -33,7 +21,18 @@
                                  number
                                  (recur (rest digits) (+ (* number base) (first digits)))))))))
 
-;;Sequence Manip
+;;Boolean Checks
+(defn prime?
+  "Returns if n is prime."
+  [n] (let [n (numeric/abs n)]
+        (cond (= n 2)   true
+          (= n 1)   false
+          (even? n) false
+          :else     (let [root (num (numeric/sqrt n))]
+                      (loop [i 3] (cond (> i root) true
+                                    (zero? (mod n i)) false
+                                    :else (recur (+ i 2))))))))
+
 (defn seq-palindrome?
   "Returns true if the list is a palindrome.
   Uses = to check for equality of ends."
@@ -41,6 +40,10 @@
                          (< (count xs) 2)         true
                          (= (first xs) (last xs)) (recur (drop-last (drop 1 xs)))
                          :else                    false)))
+
+(defn pandigital?
+  "Returns true if the number n is pandigital."
+  [n] (= (list 1 2 3 4 5 6 7 8 9) (sort (digit-list n))))
 
 ;;Lazy Sequences
 (defn lazy-fib

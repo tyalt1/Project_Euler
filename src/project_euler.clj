@@ -495,17 +495,13 @@
 ;;The product 7254 and be written as 39*186=7254, the digits of these are pandigital (ust 1 to 9)
 ;;Find the sum of all products where their multiplicand/multiplier/product is pandigital.
 (defn pe032 []
-  (let [pandigital? (fn [lst] (let [dv (sort (flatten lst))]
-                                (and (= (count dv) 9) (apply distinct? dv) (= 1 (first dv)) (= 9 (last dv)))))]
-    (->> (for [i (range 2 5000)
-               j (range i (/ 9999 i))
-               :let [r (* i j)]
-               :when (pandigital? (list (pelib/digit-list i)
-                                        (pelib/digit-list j)
-                                        (pelib/digit-list r)))]
-           r)
-      (set)
-      (apply +))))
+  (->> (for [i (range 2 5000)
+             j (range i (/ 9999 i))
+             :let [r (* i j)]
+             :when (pelib/pandigital? (Integer/parseInt (str i j r)))]
+         r)
+    (set)
+    (apply +)))
 
 
 ;;Problem 33
