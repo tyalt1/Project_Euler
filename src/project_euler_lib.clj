@@ -1,4 +1,6 @@
-(ns project_euler_lib "Useful functions for Project Euler probelms."
+(ns ^{:doc "Useful functions for Project Euler probelms."
+      :author "Tyler Alterio"}
+  project_euler_lib
   (:require [contrib.math.numeric-tower :as numeric]))
 
 ;;Digit Manip
