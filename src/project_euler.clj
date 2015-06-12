@@ -357,7 +357,7 @@
 
 
 ;;Problem 22
-;;Given a list of names in a file (src/p022_names.txt)
+;;Given a list of names in a file (assets/p022_names.txt)
 ;;Each name is a sum of the letters, where A is 1, B is 2...
 ;;What is the sum of the name values times their position
 (defn pe022 []
@@ -572,8 +572,19 @@
                    (apply +))))
 
 
+;;Problem 38
+;;192*1,192*2,192*3 = 192,384,576 When you concat those numbers together, you get a 1 to 9 pandigital number.
+;;Find the largets pandigital number than can be formed as the concatednated product of an integer range 1 to n.
+(defn pe038 [] (let [mul-cat (fn [number to-n] (bigint (apply str (map #(* % number) (range 1 (inc to-n))))))]
+                 (long (apply max (for [i (range 1 10000)
+                                        n (range 2 10)
+                                        :let [prod (mul-cat i n)]
+                                        :when (pelib/pandigital? prod)]
+                                    prod)))))
+
+
 ;;Problem 67
-;;Same as problem 18, but with a larger tree. Stored in "src/p067_triangle.txt".
+;;Same as problem 18, but with a larger tree. Stored in "assets/p067_triangle.txt".
 (defn pe067 []
   (let [triangle (map
                    (fn [x] (map #(Integer/parseInt %) (re-seq #"\d+" x)))
