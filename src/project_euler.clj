@@ -583,6 +583,21 @@
                                     prod)))))
 
 
+;;Problem 39
+;;Find the perimeter of a right triangle with the most combinations of side lengths.
+(defn pe039 []
+  (->>
+    (for [p (range 2 1001 2)]
+      (list p (count (for [a (range 1 (/ p 2))
+                           b (range 1 (/ p 2))
+                           :let [c (numeric/sqrt (+ (numeric/expt a 2) (numeric/expt b 2)))]
+                           :when (= p (+ a b c))]
+                       (list a b c)))))
+    (sort-by (fn [x] (second x)) >)
+    (first)
+    (first)))
+
+
 ;;Problem 67
 ;;Same as problem 18, but with a larger tree. Stored in "assets/p067_triangle.txt".
 (defn pe067 []
