@@ -498,7 +498,7 @@
   (->> (for [i (range 2 5000)
              j (range i (/ 9999 i))
              :let [r (* i j)]
-             :when (pelib/pandigital? (Integer/parseInt (str i j r)))]
+             :when (pelib/pandigital? 9 (Integer/parseInt (str i j r)))]
          r)
     (set)
     (apply +)))
@@ -579,7 +579,7 @@
                  (long (apply max (for [i (range 1 10000)
                                         n (range 2 10)
                                         :let [prod (mul-cat i n)]
-                                        :when (pelib/pandigital? prod)]
+                                        :when (pelib/pandigital? 9 prod)]
                                     prod)))))
 
 

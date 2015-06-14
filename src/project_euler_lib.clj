@@ -44,8 +44,8 @@
                          :else                    false)))
 
 (defn pandigital?
-  "Returns true if the number n is pandigital."
-  [n] (= (list 1 2 3 4 5 6 7 8 9) (sort (digit-list n))))
+  "Returns true if the number is pandigital (1 to n)."
+  [n number] (= (range 1 (inc n)) (sort (digit-list number))))
 
 ;;Lazy Sequences
 (defn lazy-fib
