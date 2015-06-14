@@ -598,6 +598,15 @@
     (first)))
 
 
+;;Problem 40
+;;By concatenating the positive interges you get : 123456789101112131415161718192021...
+;;The 12th digit is 1. Call it d12.
+;;Solve d1 * d10 * d100 * d1000 * d10000 * d100000 * d1000000
+(defn- lazy-idf [x] (concat (pelib/digit-list x) (lazy-seq (lazy-idf (inc x)))))
+
+(defn pe040 [] (apply * (map #(nth (lazy-idf 0) %) (list 1 10 100 1000 10000 100000 1000000))))
+
+
 ;;Problem 67
 ;;Same as problem 18, but with a larger tree. Stored in "assets/p067_triangle.txt".
 (defn pe067 []
