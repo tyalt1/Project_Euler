@@ -607,6 +607,14 @@
 (defn pe040 [] (apply * (map #(nth (lazy-idf 0) %) (list 1 10 100 1000 10000 100000 1000000))))
 
 
+;;Problem 41
+;;What is the largest n-digit pandigital prime that exsists?
+(defn pe041 [] (apply max (for [p (take-while #(< % 8000000) (pelib/lazy-primes))
+                                n (range 1 10)
+                                :when (pelib/pandigital? n p)]
+                            p)))
+
+
 ;;Problem 67
 ;;Same as problem 18, but with a larger tree. Stored in "assets/p067_triangle.txt".
 (defn pe067 []
