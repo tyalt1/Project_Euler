@@ -625,6 +625,23 @@
            name-val))))
 
 
+;;Problem 43
+;;Find the sum of all the 0 to 9 pandigital numbers, where
+;;d2d3d4=406 is divisible by 2
+;;d3d4d5=063 is divisible by 3
+;;d4d5d6=635 is divisible by 5
+;;d5d6d7=357 is divisible by 7
+;;d6d7d8=572 is divisible by 11
+;;d7d8d9=728 is divisible by 13
+;;d8d9d10=289 is divisible by 17
+;;(dx is the xth digit of the number)
+(defn pe043 [] (let [get-num (fn [number] (map pelib/from-digit-list
+                                            (drop 1 (take 8 (partition 3 1 (cycle (pelib/digit-list number)))))))]
+                 (apply + (for [n (map pelib/from-digit-list (combo/permutations (range 0 10)))
+                                :when (every? identity (map #(zero? (mod %1 %2)) (get-num n) '(2 3 5 7 11 13 17)))]
+                            n))))
+
+
 ;;Problem 67
 ;;Same as problem 18, but with a larger tree. Stored in "assets/p067_triangle.txt".
 (defn pe067 []
