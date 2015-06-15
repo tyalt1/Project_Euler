@@ -615,6 +615,16 @@
                             p)))
 
 
+;;Problem 42
+;;Given a file (assets/p042_words.txt) how many of them strings are triangular numbers?
+(defn pe042 [] (let [letter-val #(- (inc (int (java.lang.Character/toUpperCase %))) (int \A))
+                     names (map #(subs % 1 (dec (count %))) (clojure.string/split (slurp "assets/p042_words.txt") #","))
+                     tri-sample (set (take-while #(< % 200) (pelib/lazy-triangular)))]
+  (count (for [name-val (map #(apply + (map letter-val %)) names)
+               :when (contains? tri-sample name-val)]
+           name-val))))
+
+
 ;;Problem 67
 ;;Same as problem 18, but with a larger tree. Stored in "assets/p067_triangle.txt".
 (defn pe067 []
