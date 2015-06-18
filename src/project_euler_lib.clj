@@ -35,6 +35,18 @@
                                             (zero? (mod n i)) false
                                             :else             (recur (+ i 2))))))))
 
+(defn triangular?
+  "returns true if n is a triangular number."
+  [n] (integer? (numeric/sqrt (+ 1 (* 8 n)))))
+
+(defn pentagonal?
+  "Returns true if n is a pentagonal number."
+  [n] (zero? (rem (+ 1 (Math/sqrt (+ 1 (* 24 n)))) 6)))
+
+(defn hexagonal?
+  "Returns true if n is a hexagonal number."
+  [n] (zero? (rem (+ 1 (Math/sqrt (+ 1 (* 8 n)))) 4)))
+
 (defn seq-palindrome?
   "Returns true if the list is a palindrome.
   Uses = to check for equality of ends."

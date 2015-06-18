@@ -29,7 +29,7 @@
       <file leaf-file-name="project_euler.clj" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/project_euler.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9191759">
+            <state vertical-scroll-proportion="0.83835185">
               <caret line="668" column="0" selection-start-line="668" selection-start-column="0" selection-end-line="668" selection-end-column="0" />
               <folding>
                 <element signature="n#pe011#0" expanded="false" />
@@ -49,7 +49,7 @@
         <entry file="file://$PROJECT_DIR$/src/project_euler_lib.clj">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="77" column="52" selection-start-line="77" selection-start-column="52" selection-end-line="77" selection-end-column="52" />
+              <caret line="39" column="45" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -1120,14 +1120,14 @@
     <entry file="file://$PROJECT_DIR$/src/project_euler_lib.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="77" column="52" selection-start-line="77" selection-start-column="52" selection-end-line="77" selection-end-column="52" />
+          <caret line="39" column="45" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/project_euler.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9191759">
+        <state vertical-scroll-proportion="0.83835185">
           <caret line="668" column="0" selection-start-line="668" selection-start-column="0" selection-end-line="668" selection-end-column="0" />
           <folding>
             <element signature="n#pe011#0" expanded="false" />
