@@ -28,12 +28,12 @@
   "Returns if n is prime."
   [n] (let [n (numeric/abs n)]
         (cond (= n 2)   true
-          (= n 1)   false
-          (even? n) false
-          :else     (let [root (num (numeric/sqrt n))]
-                      (loop [i 3] (cond (> i root) true
-                                    (zero? (mod n i)) false
-                                    :else (recur (+ i 2))))))))
+              (= n 1)   false
+              (even? n) false
+              :else     (let [root (numeric/sqrt n)]
+                          (loop [i 3] (cond (> i root)        true
+                                            (zero? (mod n i)) false
+                                            :else             (recur (+ i 2))))))))
 
 (defn seq-palindrome?
   "Returns true if the list is a palindrome.
@@ -59,42 +59,39 @@
 (defn lazy-primes
   "Returns a lazy sequence of prime numbers.
   Default: n=2."
-  ([] (lazy-primes 2))
-  ([n] (loop [i n] (if (prime? i)
-                     (cons i (lazy-seq (lazy-primes (inc i))))
-                     (recur (inc i))))))
-
-(defn lazy-factorial
-  "Returns a lazy sequence of factorials.
-  Default: n=1, fac=1."
-  ([] (lazy-factorial 1 1))
-  ([n fac] (cons fac (lazy-seq (lazy-factorial (inc n) (* fac (inc n)))))))
+  ([]  (filter prime? (iterate inc 2)))
+  ([n] (filter prime? (iterate inc n))))
 
 (defn lazy-triangular
   "Returns a lazy sequence of triangular numbers.
-  A triangular number is a number that is the sum of the natural numbers before it.
-  Think of factorial, but the sum instead of the product.
-  Ex. 7th = 1+2+3+4+5+6+7 = 28
-  Default: n=1, tri=1."
-  ([] (lazy-triangular 1 1))
-  ([n tri] (cons tri (lazy-seq (lazy-triangular (inc n) (+ tri (inc n)))))))
+  T(n)=(n^2+n)/2"
+  [] (map (fn [n] (/ (+ (* n n) n) 2)) (iterate inc 1)))
+
+(defn lazy-pentagonal
+  "Returns a lazy sequence of pentagonal numbers.
+  P(n)=(3n^2-n)/2"
+  [] (map (fn [n] (/ (- (* 3 n n) n) 2)) (iterate inc 1)))
+
+(defn lazy-hexagonal
+  "Returns a lazy sequence of hexagonal numbers.
+  H(n)=2n^2-n"
+  [] (map (fn [n] (- (* 2 n n) n)) (iterate inc 1)))
 
 ;;Other
 (defn factors
   "Returns a set of factors for n."
-  [n] (loop [iter 2, upper n, result (set [1 n])]
+  [n] (loop [iter 2, upper n, result (set '(1 n))]
         (cond
-          (>= iter upper) result
+          (>= iter upper)    result
           (= 0 (mod n iter)) (recur (inc iter) (/ n iter) (conj result iter (/ n iter)))
-          :else (recur (inc iter) upper result))))
+          :else              (recur (inc iter) upper result))))
 
 (defn divisors
-  "Returns a set of the proper divisors of n."
-  [n] (set (butlast (sort (factors n)))))
+  "Returns a set of the proper divisors of n.
+  Like factors, but the set does not include n."
+  [n] (set (butlast (factors n))))
 
 (defn factorial
-  "Returns the factorial of n."
-  [n] (loop [i n, result 1]
-        (if (= i 0)
-          result
-          (recur (dec i) (* result i)))))
+  "Returns the factorial of n.
+  If n<=1, then return 1."
+  [n] (apply * (range 1 (inc n))))

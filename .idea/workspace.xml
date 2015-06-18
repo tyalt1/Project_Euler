@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d888b5c4-4c75-45bb-8d5a-a6d9dfbea882" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/project_euler.clj" afterPath="$PROJECT_DIR$/src/project_euler.clj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/project_euler_lib.clj" afterPath="$PROJECT_DIR$/src/project_euler_lib.clj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Project_Euler.iws" />
@@ -25,21 +26,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="project_euler_lib.clj" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/project_euler_lib.clj">
+      <file leaf-file-name="project_euler.clj" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/project_euler.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="79" column="76" selection-start-line="79" selection-start-column="76" selection-end-line="79" selection-end-column="76" />
-              <folding />
+            <state vertical-scroll-proportion="0.9191759">
+              <caret line="668" column="0" selection-start-line="668" selection-start-column="0" selection-end-line="668" selection-end-column="0" />
+              <folding>
+                <element signature="n#pe011#0" expanded="false" />
+                <element signature="n#pe013#0" expanded="false" />
+                <element signature="n#pe014#0" expanded="false" />
+                <element signature="n#pe015#0" expanded="false" />
+                <element signature="n#pe016#0" expanded="false" />
+                <element signature="n#pe017#0" expanded="false" />
+                <element signature="n#merge-rows#0" expanded="false" />
+                <element signature="n#pe018#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="project_euler.clj" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/project_euler.clj">
+      <file leaf-file-name="project_euler_lib.clj" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/project_euler_lib.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.56984127">
-              <caret line="653" column="41" selection-start-line="653" selection-start-column="41" selection-end-line="653" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="77" column="52" selection-start-line="77" selection-start-column="52" selection-end-line="77" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -103,9 +113,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -176,6 +183,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -467,10 +477,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Kotlin Bytecode" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32909605" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24829932" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24716553" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46300447" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4719731" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24887893" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -516,7 +526,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -532,7 +551,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="401" column="61" selection-start-line="401" selection-start-column="61" selection-end-line="401" selection-end-column="61" />
-          <folding />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -548,7 +576,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="381" column="0" selection-start-line="381" selection-start-column="0" selection-end-line="381" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -564,7 +601,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -580,7 +626,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -596,7 +651,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -612,7 +676,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -628,7 +701,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="377" column="2" selection-start-line="377" selection-start-column="2" selection-end-line="377" selection-end-column="2" />
-          <folding />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -644,7 +726,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -660,7 +751,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -676,7 +776,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="332" column="0" selection-start-line="332" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -692,7 +801,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -708,7 +826,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -724,7 +851,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -740,7 +876,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -756,7 +901,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -772,7 +926,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -788,7 +951,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -804,7 +976,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="253" column="28" selection-start-line="253" selection-start-column="28" selection-end-line="253" selection-end-column="28" />
-          <folding />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -820,39 +1001,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project_euler_lib.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="51" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project_euler.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project_euler_lib.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="51" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project_euler.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -868,7 +1026,66 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/project_euler_lib.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="51" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/project_euler.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/project_euler_lib.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="51" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/project_euler.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -903,16 +1120,25 @@
     <entry file="file://$PROJECT_DIR$/src/project_euler_lib.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="79" column="76" selection-start-line="79" selection-start-column="76" selection-end-line="79" selection-end-column="76" />
+          <caret line="77" column="52" selection-start-line="77" selection-start-column="52" selection-end-line="77" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/project_euler.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56984127">
-          <caret line="653" column="41" selection-start-line="653" selection-start-column="41" selection-end-line="653" selection-end-column="41" />
-          <folding />
+        <state vertical-scroll-proportion="0.9191759">
+          <caret line="668" column="0" selection-start-line="668" selection-start-column="0" selection-end-line="668" selection-end-column="0" />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe015#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+            <element signature="n#pe017#0" expanded="false" />
+            <element signature="n#merge-rows#0" expanded="false" />
+            <element signature="n#pe018#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
