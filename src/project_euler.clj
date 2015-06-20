@@ -658,6 +658,13 @@
 (defn pe045 [] (nth (filter pelib/hexagonal? (filter pelib/pentagonal? (pelib/lazy-triangular))) 2))
 
 
+;;Problem 46
+;;What is the smallest odd composite number and is not the sume of a prime and twice a square number.
+(defn pe046 [] (let [doubled-squares (map #(* 2 % %) (range))
+                     goldbach? (fn [n] (some #(pelib/prime? (- n %)) (take-while #(< % n) doubled-squares)))]
+                 (first (remove goldbach? (remove pelib/prime? (filter odd? (iterate inc 3)))))))
+
+
 ;;Problem 67
 ;;Same as problem 18, but with a larger tree. Stored in "assets/p067_triangle.txt".
 (defn pe067 []
