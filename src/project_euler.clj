@@ -665,6 +665,17 @@
                  (first (remove goldbach? (remove pelib/prime? (filter odd? (iterate inc 3)))))))
 
 
+;;Problem 47
+;;Find the first four consecutive numbers that have 4 distinct primes.
+(defn pe047 []
+  (let [four-primes? (fn [n] (= 4 (count (filter pelib/prime? (pelib/factors n)))))]
+    (first
+      (first
+        (filter #(= 4 (count %))
+          (map #(map last %) (partition-by #(apply - %) (map-indexed vector
+                                                          (filter four-primes? (iterate inc 134000))))))))))
+
+
 ;;Problem 67
 ;;Same as problem 18, but with a larger tree. Stored in "assets/p067_triangle.txt".
 (defn pe067 []

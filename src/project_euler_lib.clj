@@ -92,11 +92,11 @@
 ;;Other
 (defn factors
   "Returns a set of factors for n."
-  [n] (loop [iter 2, upper n, result (set '(1 n))]
+  [n] (loop [iter 2, upper n, result (set [1 n])]
         (cond
-          (>= iter upper)    result
-          (= 0 (mod n iter)) (recur (inc iter) (/ n iter) (conj result iter (/ n iter)))
-          :else              (recur (inc iter) upper result))))
+          (>= iter upper)      result
+          (zero? (rem n iter)) (recur (inc iter) (/ n iter) (conj result iter (/ n iter)))
+          :else                (recur (inc iter) upper result))))
 
 (defn divisors
   "Returns a set of the proper divisors of n.
