@@ -498,7 +498,7 @@
   (->> (for [i (range 2 5000)
              j (range i (/ 9999 i))
              :let [r (* i j)]
-             :when (pelib/pandigital? 9 (Integer/parseInt (str i j r)))]
+             :when (pelib/pandigital? 1 9 (Integer/parseInt (str i j r)))]
          r)
     (set)
     (apply +)))
@@ -579,7 +579,7 @@
                  (long (apply max (for [i (range 1 10000)
                                         n (range 2 10)
                                         :let [prod (mul-cat i n)]
-                                        :when (pelib/pandigital? 9 prod)]
+                                        :when (pelib/pandigital? 1 9 prod)]
                                     prod)))))
 
 
@@ -611,7 +611,7 @@
 ;;What is the largest n-digit pandigital prime that exsists?
 (defn pe041 [] (apply max (for [p (take-while #(< % 8000000) (pelib/lazy-primes))
                                 n (range 1 10)
-                                :when (pelib/pandigital? n p)]
+                                :when (pelib/pandigital? 1 n p)]
                             p)))
 
 
