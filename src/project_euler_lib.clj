@@ -1,4 +1,4 @@
-(ns ^{:doc "Useful functions for Project Euler probelms."
+(ns ^{:doc "Useful functions for Project Euler problems."
       :author "Tyler Alterio"}
   project_euler_lib
   (:require [contrib.math.numeric-tower :as numeric]))
@@ -16,12 +16,12 @@
 (defn from-digit-list
   "Takes a list of digits and returns a long if in range, else bigint."
   ([list-of-digits]      (from-digit-list list-of-digits 10))
-  ([list-of-digits base] (let [truncate-to-long #(if (< % java.lang.Long/MAX_VALUE) (long %) %)]
-                           (truncate-to-long
-                             (loop [digits list-of-digits, number (bigint 0)]
-                               (if (empty? digits)
-                                 number
-                                 (recur (rest digits) (+ (* number base) (first digits)))))))))
+  ([list-of-digits base] (loop [digits list-of-digits, number (bigint 0)]
+                           (if (empty? digits)
+                             (if (< number java.lang.Long/MAX_VALUE)
+                               (long number)
+                               number)
+                             (recur (rest digits) (+ (* number base) (first digits)))))))
 
 ;;Boolean Checks
 (defn prime?
@@ -58,8 +58,8 @@
 (defn pandigital?
   "Returns true if the number is pandigital (1 to n).
   Optinal use of ns(start) and ne(end) to check specific range."
-  ([n number]     (= (range 1  (inc n)) (sort (digit-list number))))
-  ([ns ne number] (= (range ns (inc ne)) (sort (digit-list number)))))
+  ([n number]             (= (range 1       (inc n))     (sort (digit-list number))))
+  ([n-start n-end number] (= (range n-start (inc n-end)) (sort (digit-list number)))))
 
 ;;Lazy Sequences
 (defn lazy-fib
