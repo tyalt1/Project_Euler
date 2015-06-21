@@ -676,6 +676,15 @@
                                                           (filter four-primes? (iterate inc 134000))))))))))
 
 
+;;Problem 48
+;;Find the first 10 digits of 1^1 + 2^2 + 3^3 + ... + 1000^1000.
+(defn pe048 []
+  (pelib/from-digit-list
+    (reverse
+      (take 10
+        (reverse (pelib/digit-list (apply + (map #(numeric/expt %1 %2) (range 1 1001) (range 1 1001)))))))))
+
+
 ;;Problem 67
 ;;Same as problem 18, but with a larger tree. Stored in "assets/p067_triangle.txt".
 (defn pe067 []
