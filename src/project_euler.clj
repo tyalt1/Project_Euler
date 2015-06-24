@@ -685,6 +685,21 @@
         (reverse (pelib/digit-list (apply + (map #(numeric/expt %1 %2) (range 1 1001) (range 1 1001)))))))))
 
 
+;;Problem 49
+;;1487, 4817, 8147 are increased by 3330, prime, and permutations of eachother
+;;Find the other set of 4-digit numbers that meet these three and concat them.
+(defn pe049 []
+  (->>
+    (take-while #(< % 3339) (pelib/lazy-primes 1000))
+    (filter #(pelib/prime? (+ % 3330)))
+    (filter #(pelib/prime? (+ % 6660)))
+    (filter #(= (sort (pelib/digit-list %)) (sort (pelib/digit-list (+ 3330 %)))))
+    (filter #(= (sort (pelib/digit-list %)) (sort (pelib/digit-list (+ 6660 %)))))
+    (remove #{1487 4817 8147})
+    (apply #(flatten (map pelib/digit-list (list % (+ % 3330) (+ % 6660)))))
+    (pelib/from-digit-list)))
+
+
 ;;Problem 67
 ;;Same as problem 18, but with a larger tree. Stored in "assets/p067_triangle.txt".
 (defn pe067 []
