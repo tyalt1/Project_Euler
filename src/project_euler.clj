@@ -700,6 +700,17 @@
     (pelib/from-digit-list)))
 
 
+;;Problem 56
+;;What is the max digit sum of a^b, where a,b < 100.
+(defn pe056 []
+  (->>
+    (for [a (range 1 100), b (range 1 100)] (numeric/expt a b))
+    (map pelib/digit-list)
+    (map #(apply + %))
+    (apply max)
+    (long)))
+
+
 ;;Problem 67
 ;;Same as problem 18, but with a larger tree. Stored in "assets/p067_triangle.txt".
 (defn pe067 []
