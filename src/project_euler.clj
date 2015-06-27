@@ -700,6 +700,19 @@
     (pelib/from-digit-list)))
 
 
+;;Problem 50
+;;What prime below 1,000,000 can be written by a sum of consecutive primes?
+(defn pe050 [] (let [prime-sums (pelib/lazy-accum (pelib/lazy-primes))
+                     goal 1000000]
+                 (loop [c 1]
+                   (let [bots (reverse (take c prime-sums))
+                         tops (take c (reverse (take-while #(> goal (- % (last bots))) (rest prime-sums))))]
+                     (if-let [v (some #(if (pelib/prime? %) % nil) (map - tops bots))]
+                       v
+                       (recur (inc c)))))))
+(print-pe-solution 50)
+
+
 ;;Problem 56
 ;;What is the max digit sum of a^b, where a,b < 100.
 (defn pe056 []
