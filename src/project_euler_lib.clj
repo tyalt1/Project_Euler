@@ -50,10 +50,10 @@
 (defn seq-palindrome?
   "Returns true if the list is a palindrome.
   Uses = to check for equality of ends."
-  [seq] (loop [xs seq] (cond
-                         (< (count xs) 2)         true
-                         (= (first xs) (last xs)) (recur (drop-last (drop 1 xs)))
-                         :else                    false)))
+  [xs] (cond
+          (< (count xs) 2)         true
+          (= (first xs) (last xs)) (recur (drop-last (drop 1 xs)))
+          :else                    false))
 
 (defn pandigital?
   "Returns true if the number is pandigital (1 to n).
@@ -114,3 +114,14 @@
   "Returns the factorial of n.
   If n<=1, then return 1."
   [n] (apply * (range 1 (inc n))))
+
+(defn gcd
+  "Returns greatest common denominator of a and b."
+  [a b] (if (zero? b)
+          a
+          (recur b (rem a b))))
+
+(defn lcm
+  "Returns least common multiple of a and b.
+  Uses gcd function."
+  [a b] (/ (numeric/abs (* a b)) (gcd a b)))
