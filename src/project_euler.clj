@@ -710,7 +710,6 @@
                      (if-let [v (some #(if (pelib/prime? %) % nil) (map - tops bots))]
                        v
                        (recur (inc c)))))))
-(print-pe-solution 50)
 
 
 ;;Problem 56
@@ -732,3 +731,14 @@
                    (clojure.string/split (slurp "assets/p067_triangle.txt") #"\n"))]
     ;uses merge-rows function used in pe018
     (->> triangle (reverse) (reduce merge-rows) (first))))
+
+
+;;Problem 92
+;;If you square all the digits of a number and sum them over and over, you will get 89 or 1.
+;;How many numbers under 10 million approach 89.
+(defn pe092 [] (count (for [i (range 1 10000000)
+                            :let [f (fn [n] (if (or (= 1 n) (= 89 n))
+                                              n
+                                              (recur (apply + (map #(* % %) (pelib/digit-list n))))))]
+                            :when (= 89 (f i))]
+                        i)))
