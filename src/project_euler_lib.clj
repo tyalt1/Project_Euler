@@ -1,7 +1,8 @@
 (ns ^{:doc "Useful functions for Project Euler problems."
       :author "Tyler Alterio"}
   project_euler_lib
-  (:require [contrib.math.numeric-tower :as numeric]))
+  (:require [contrib.math.numeric-tower :as numeric]
+            [clojure.set :only (difference)]))
 
 ;;Digit Manip
 (defn digit-list
@@ -96,7 +97,7 @@
   ([xs sum] (if (empty? xs)
               '()
               (let [new-sum (+ sum (first xs)), more (rest xs)]
-              (cons new-sum (lazy-seq (lazy-accum more new-sum)))))))
+                (cons new-sum (lazy-seq (lazy-accum more new-sum)))))))
 
 ;;Other
 (defn factors
@@ -110,7 +111,7 @@
 (defn divisors
   "Returns a set of the proper divisors of n.
   Like factors, but the set does not include n."
-  [n] (set (butlast (factors n))))
+  [n] (clojure.set/difference (factors n) #{n}))
 
 (defn factorial
   "Returns the factorial of n.
@@ -122,6 +123,8 @@
   [a b] (if (zero? b)
           a
           (recur b (rem a b))))
+
+(def ^{:doc "Alias of gcd."} hcf gcd)
 
 (defn lcm
   "Returns least common multiple of a and b.
