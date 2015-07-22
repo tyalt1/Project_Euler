@@ -711,6 +711,21 @@
                        v
                        (recur (inc c)))))))
 
+
+;;Problem
+;;Find the smallest x, so the x, 2x, 3x, 4x, 5x, and 6x contain the same digits.
+(defn pe052 [] (apply min (for [i (range 1 2e5)
+                                :let [dvec (comp sort pelib/digit-list)
+                                      same-digit? (fn [x] (= (dvec x)
+                                                             (dvec (* 2 x))
+                                                             (dvec (* 3 x))
+                                                             (dvec (* 4 x))
+                                                             (dvec (* 5 x))
+                                                             (dvec (* 6 x))))]
+                                :when (same-digit? i)]
+                            i)))
+
+
 ;;Problem 56
 ;;What is the max digit sum of a^b, where a,b < 100.
 (defn pe056 []
