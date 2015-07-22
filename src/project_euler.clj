@@ -703,7 +703,7 @@
 ;;Problem 50
 ;;What prime below 1,000,000 can be written by a sum of consecutive primes?
 (defn pe050 [] (let [prime-sums (pelib/lazy-accum (pelib/lazy-primes))
-                     goal 1000000]
+                     goal 1e6]
                  (loop [c 1]
                    (let [bots (reverse (take c prime-sums))
                          tops (take c (reverse (take-while #(> goal (- % (last bots))) (rest prime-sums))))]
@@ -733,10 +733,18 @@
     (->> triangle (reverse) (reduce merge-rows) (first))))
 
 
+;;Problem 69
+;;Euler's Totient function, phi(n), returns how many numbers less than n are relativly prime to n.
+;;Find n <= 1,000,000 that has the highest n/phi(n) value.
+;;Solution Note:
+(defn pe069 []
+  (last (take-while #(< % 1e6) (reductions * (pelib/lazy-primes)))))
+
+
 ;;Problem 92
 ;;If you square all the digits of a number and sum them over and over, you will get 89 or 1.
 ;;How many numbers under 10 million approach 89.
-(defn pe092 [] (count (for [i (range 1 10000000)
+(defn pe092 [] (count (for [i (range 1 1e7)
                             :let [f (fn [n] (if (or (= 1 n) (= 89 n))
                                               n
                                               (recur (apply + (map #(* % %) (pelib/digit-list n))))))]
