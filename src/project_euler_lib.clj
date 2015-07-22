@@ -89,16 +89,6 @@
   H(n)=2n^2-n"
   [] (map (fn [n] (- (* 2 n n) n)) (iterate inc 1)))
 
-(defn lazy-accum
-  "Where xs is a lazy-seq and sum is starting sum.
-  Returns a lazy-seq where the elements of xs so far are summed.
-  If xs is not a lazy-seq, then may throw NullPointerException."
-  ([xs] (lazy-accum xs 0))
-  ([xs sum] (if (empty? xs)
-              '()
-              (let [new-sum (+ sum (first xs)), more (rest xs)]
-                (cons new-sum (lazy-seq (lazy-accum more new-sum)))))))
-
 ;;Other
 (defn factors
   "Returns a set of factors for n."
