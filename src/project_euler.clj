@@ -712,7 +712,7 @@
                        (recur (inc c)))))))
 
 
-;;Problem
+;;Problem 52
 ;;Find the smallest x, so the x, 2x, 3x, 4x, 5x, and 6x contain the same digits.
 (defn pe052 [] (apply min (for [i (range 1 2e5)
                                 :let [dvec (comp sort pelib/digit-list)
@@ -724,6 +724,18 @@
                                                              (dvec (* 6 x))))]
                                 :when (same-digit? i)]
                             i)))
+
+
+;;Problem 55
+;;47+74=121 Sometimes the sum of a number and its reverse equal a number that is palindromic.
+;;You can repeat this over and over until you get a number that is palandromic.
+;;Some numbers (Lychrel numbers) never result in palindromes.
+;;How many Lychrel numbers are there under 10 thousand
+(defn pe055 [] (letfn [(lychrel-seq [n]
+                         (rest (iterate #(+ % (pelib/from-digit-list (reverse (pelib/digit-list %)))) (bigint n))))
+                       (lychrel? [n]
+                         (not-any? (comp pelib/seq-palindrome? pelib/digit-list) (take 50 (lychrel-seq n))))]
+                 (count (filter lychrel? (range 1 1e4)))))
 
 
 ;;Problem 56
