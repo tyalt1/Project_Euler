@@ -274,7 +274,7 @@
 ;;Problem 15 from Project Euler
 ;;Given a 20x20 grid, what are the maximum amount of paths.
 (defn pe015 []
-  (/ (pelib/factorial (bigint 40)) (* (pelib/factorial (bigint 20)) (pelib/factorial (bigint 20)))))
+  (long (/ (pelib/factorial 40) (* (pelib/factorial 20) (pelib/factorial 20)))))
 
 
 ;;Problem 16 from Project Euler
@@ -341,7 +341,7 @@
 ;;Problem 20
 ;;Find the sum of the digits of 100 factorial
 (defn pe020 []
-  (->> (bigint 100) (pelib/factorial) (pelib/digit-list) (apply +)))
+  (->> 100 (pelib/factorial) (pelib/digit-list) (apply +) (long)))
 
 
 ;;Problem 21
@@ -724,6 +724,16 @@
                                                              (dvec (* 6 x))))]
                                 :when (same-digit? i)]
                             i)))
+
+
+;;Problem 53
+;;How many combonations (n choose r) are greater than one million
+;; 1<=n<=100, r<=n, nCr = n!/(r!(n-r)!)
+(defn pe053 [] (count (for [n (range 23 101)
+                            r (range 1 (inc n))
+                            :let [c (/ (pelib/factorial n) (* (pelib/factorial r) (pelib/factorial (- n r))))]
+                            :when (> c 1e6)]
+                        c)))
 
 
 ;;Problem 55

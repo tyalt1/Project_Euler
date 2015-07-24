@@ -53,7 +53,7 @@
   Uses = to check for equality of ends."
   [xs] (cond
           (< (count xs) 2)         true
-          (= (first xs) (last xs)) (recur (drop-last (drop 1 xs)))
+          (= (first xs) (last xs)) (recur (rest (butlast 1 xs)))
           :else                    false))
 
 (defn pandigital?
@@ -105,8 +105,9 @@
 
 (defn factorial
   "Returns the factorial of n.
-  If n<=1, then return 1."
-  [n] (apply * (range 1 (inc n))))
+  If n<=1, then return 1.
+  Returns bigint."
+  [n] (reduce * (range 1N (inc n))))
 
 (defn gcd
   "Returns greatest common denominator of a and b."
