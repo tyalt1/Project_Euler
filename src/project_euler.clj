@@ -736,6 +736,37 @@
                         c)))
 
 
+;;Problem 54
+;;Given 1000 poker hands in p054_poker.txt, how many hands does player 1 win.
+;;Player 1 is the first five cards, player 2 is the last five cards.
+(defn pe054 [] (let [value {\2 2, \3 3, \4 4, \5 5, \6 6, \7 7, \8 8, \9 9, \T 10, \J 11, \Q 12, \K 13, \A 14}
+                     suits {\S :spades, \C :clubs, \D :diamonds, \H :hearts}
+                     check-royalflush     (fn [hand] (if (and (= (map first hand) '(10 11 12 13 14)) (apply = (map second hand))) 14 0))
+                     check-straightflush  (fn [hand] (if (and (= (map first hand) (let [c (ffirst hand)] (range c (+ 5 c)))) (apply = (map second hand))) (first (last hand)) 0))
+                     check-4kind          (fn [hand] (let [[c freq] (first (filter (comp #{4} val) (frequencies (map first hand))))] (if (nil? c) 0 c)))
+                     check-fullhouse      (fn [hand] (if (or (and (apply = (map first (take 2 hand))) (apply = (map first (drop 2 hand)))) (and (apply = (map first (take 3 hand))) (apply = (map first (drop 3 hand))))) (first (last hand)) 0))
+                     check-flush          (fn [hand] (if (apply = (map second hand)) (first (last hand)) 0))
+                     check-straight       (fn [hand] (if (= (map first hand) (let [c (ffirst hand)] (range c (+ 5 c)))) (first (last hand)) 0))
+                     check-3kind          (fn [hand] (let [[c freq] (first (filter (comp #{3} val) (frequencies (map first hand))))] (if (nil? c) 0 c)))
+                     check-2pair          (fn [hand] (let [pairs (filter (comp #{2} val) (frequencies (map first hand)))] (if (= 2 (count pairs)) (first (last pairs)) 0)))
+                     check-pair           (fn [hand] (let [pairs (filter (comp #{2} val) (frequencies (map first hand)))] (if (empty? pairs) 0 (first (last pairs)))))
+                     high-card            (fn [hand] (first (last hand)))
+                     player1-won? (fn [p1 p2] (let [fvec [check-royalflush check-straightflush check-4kind check-fullhouse check-flush check-straight check-3kind check-2pair check-pair high-card]]
+                                                (loop [i 0] (let [p1-score ((fvec i) p1), p2-score ((fvec i) p2)]
+                                                              (cond
+                                                                (< p1-score p2-score) false
+                                                                (> p1-score p2-score) true
+                                                                :else (recur (inc i)))))))]
+                 (count (for [round (clojure.string/split (slurp "assets/p054_poker.txt") #"\n")
+                              :let [[c0 c1 c2 c3 c4 c5 c6 c7 c8 c9] (clojure.string/split round #" ")
+                                    player1 (sort-by first (map #(list (value (first %)) (suits (second %)))
+                                                             [c0 c1 c2 c3 c4]))
+                                    player2 (sort-by first (map #(list (value (first %)) (suits (second %)))
+                                                             [c5 c6 c7 c8 c9]))]
+                              :when (player1-won? player1 player2)]
+                          :win))))
+
+
 ;;Problem 55
 ;;47+74=121 Sometimes the sum of a number and its reverse equal a number that is palindromic.
 ;;You can repeat this over and over until you get a number that is palandromic.

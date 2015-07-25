@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d888b5c4-4c75-45bb-8d5a-a6d9dfbea882" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/clojure.jar" afterPath="$PROJECT_DIR$/lib/clojure.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/assets/p054_poker.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/project_euler.clj" afterPath="$PROJECT_DIR$/src/project_euler.clj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Project_Euler.iws" />
@@ -25,26 +26,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="project_euler.clj" pinned="false" current-in-tab="false">
+      <file leaf-file-name="project_euler.clj" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/project_euler.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="748" column="0" selection-start-line="748" selection-start-column="0" selection-end-line="748" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.5928489">
+              <caret line="766" column="34" selection-start-line="766" selection-start-column="34" selection-end-line="766" selection-end-column="34" />
               <folding>
                 <element signature="n#pe011#0" expanded="false" />
                 <element signature="n#pe013#0" expanded="false" />
                 <element signature="n#pe014#0" expanded="false" />
                 <element signature="n#pe016#0" expanded="false" />
-                <element signature="n#pe017#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="project_euler_lib.clj" pinned="false" current-in-tab="true">
+      <file leaf-file-name="project_euler_lib.clj" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/project_euler_lib.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6366782">
+            <state vertical-scroll-proportion="0.0">
               <caret line="109" column="25" selection-start-line="109" selection-start-column="25" selection-end-line="109" selection-end-column="25" />
               <folding />
             </state>
@@ -66,8 +66,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/contrib/math/combinatorics.clj" />
         <option value="$PROJECT_DIR$/src/contrib/math/numeric_tower.clj" />
-        <option value="$PROJECT_DIR$/src/project_euler.clj" />
         <option value="$PROJECT_DIR$/src/project_euler_lib.clj" />
+        <option value="$PROJECT_DIR$/src/project_euler.clj" />
       </list>
     </option>
   </component>
@@ -94,7 +94,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
@@ -110,8 +110,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -162,9 +162,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project_Euler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project_Euler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project_Euler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project_Euler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -184,6 +216,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Tyler\Workspace\Project_Euler\src\assets" />
       <recent name="C:\Users\Tyler\Workspace\WorkSpaceSave\Clojure_Workspace\Project_Euler\src" />
     </key>
   </component>
@@ -458,12 +491,12 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2688889" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19625668" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24775785" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28798187" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28777778" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -493,7 +526,9 @@
     </ignored-roots>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -501,14 +536,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/project_euler_lib.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/project_euler.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -518,7 +545,6 @@
             <element signature="n#pe013#0" expanded="false" />
             <element signature="n#pe014#0" expanded="false" />
             <element signature="n#pe016#0" expanded="false" />
-            <element signature="n#pe017#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -540,29 +566,6 @@
             <element signature="n#pe013#0" expanded="false" />
             <element signature="n#pe014#0" expanded="false" />
             <element signature="n#pe016#0" expanded="false" />
-            <element signature="n#pe017#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project_euler_lib.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project_euler.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#pe011#0" expanded="false" />
-            <element signature="n#pe013#0" expanded="false" />
-            <element signature="n#pe014#0" expanded="false" />
-            <element signature="n#pe016#0" expanded="false" />
-            <element signature="n#pe017#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -584,7 +587,27 @@
             <element signature="n#pe013#0" expanded="false" />
             <element signature="n#pe014#0" expanded="false" />
             <element signature="n#pe016#0" expanded="false" />
-            <element signature="n#pe017#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/project_euler_lib.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/project_euler.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -606,7 +629,6 @@
             <element signature="n#pe013#0" expanded="false" />
             <element signature="n#pe014#0" expanded="false" />
             <element signature="n#pe016#0" expanded="false" />
-            <element signature="n#pe017#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -628,7 +650,6 @@
             <element signature="n#pe013#0" expanded="false" />
             <element signature="n#pe014#0" expanded="false" />
             <element signature="n#pe016#0" expanded="false" />
-            <element signature="n#pe017#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -650,7 +671,6 @@
             <element signature="n#pe013#0" expanded="false" />
             <element signature="n#pe014#0" expanded="false" />
             <element signature="n#pe016#0" expanded="false" />
-            <element signature="n#pe017#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -672,7 +692,6 @@
             <element signature="n#pe013#0" expanded="false" />
             <element signature="n#pe014#0" expanded="false" />
             <element signature="n#pe016#0" expanded="false" />
-            <element signature="n#pe017#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -694,7 +713,6 @@
             <element signature="n#pe013#0" expanded="false" />
             <element signature="n#pe014#0" expanded="false" />
             <element signature="n#pe016#0" expanded="false" />
-            <element signature="n#pe017#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -716,7 +734,6 @@
             <element signature="n#pe013#0" expanded="false" />
             <element signature="n#pe014#0" expanded="false" />
             <element signature="n#pe016#0" expanded="false" />
-            <element signature="n#pe017#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -738,7 +755,6 @@
             <element signature="n#pe013#0" expanded="false" />
             <element signature="n#pe014#0" expanded="false" />
             <element signature="n#pe016#0" expanded="false" />
-            <element signature="n#pe017#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -760,7 +776,6 @@
             <element signature="n#pe013#0" expanded="false" />
             <element signature="n#pe014#0" expanded="false" />
             <element signature="n#pe016#0" expanded="false" />
-            <element signature="n#pe017#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -782,7 +797,6 @@
             <element signature="n#pe013#0" expanded="false" />
             <element signature="n#pe014#0" expanded="false" />
             <element signature="n#pe016#0" expanded="false" />
-            <element signature="n#pe017#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -804,7 +818,6 @@
             <element signature="n#pe013#0" expanded="false" />
             <element signature="n#pe014#0" expanded="false" />
             <element signature="n#pe016#0" expanded="false" />
-            <element signature="n#pe017#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -826,7 +839,6 @@
             <element signature="n#pe013#0" expanded="false" />
             <element signature="n#pe014#0" expanded="false" />
             <element signature="n#pe016#0" expanded="false" />
-            <element signature="n#pe017#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -848,7 +860,6 @@
             <element signature="n#pe013#0" expanded="false" />
             <element signature="n#pe014#0" expanded="false" />
             <element signature="n#pe016#0" expanded="false" />
-            <element signature="n#pe017#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -870,7 +881,6 @@
             <element signature="n#pe013#0" expanded="false" />
             <element signature="n#pe014#0" expanded="false" />
             <element signature="n#pe016#0" expanded="false" />
-            <element signature="n#pe017#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -892,29 +902,6 @@
             <element signature="n#pe013#0" expanded="false" />
             <element signature="n#pe014#0" expanded="false" />
             <element signature="n#pe016#0" expanded="false" />
-            <element signature="n#pe017#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project_euler_lib.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="51" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/project_euler.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#pe011#0" expanded="false" />
-            <element signature="n#pe013#0" expanded="false" />
-            <element signature="n#pe014#0" expanded="false" />
-            <element signature="n#pe016#0" expanded="false" />
-            <element signature="n#pe017#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -936,7 +923,6 @@
             <element signature="n#pe013#0" expanded="false" />
             <element signature="n#pe014#0" expanded="false" />
             <element signature="n#pe016#0" expanded="false" />
-            <element signature="n#pe017#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -958,7 +944,27 @@
             <element signature="n#pe013#0" expanded="false" />
             <element signature="n#pe014#0" expanded="false" />
             <element signature="n#pe016#0" expanded="false" />
-            <element signature="n#pe017#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/project_euler_lib.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="51" selection-start-line="0" selection-start-column="51" selection-end-line="0" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/project_euler.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1012,25 +1018,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/project_euler.clj">
+    <entry file="file://$PROJECT_DIR$/src/assets/p054_poker.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="748" column="0" selection-start-line="748" selection-start-column="0" selection-end-line="748" selection-end-column="0" />
-          <folding>
-            <element signature="n#pe011#0" expanded="false" />
-            <element signature="n#pe013#0" expanded="false" />
-            <element signature="n#pe014#0" expanded="false" />
-            <element signature="n#pe016#0" expanded="false" />
-            <element signature="n#pe017#0" expanded="false" />
-          </folding>
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/project_euler_lib.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6366782">
+        <state vertical-scroll-proportion="0.0">
           <caret line="109" column="25" selection-start-line="109" selection-start-column="25" selection-end-line="109" selection-end-column="25" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/project_euler.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5928489">
+          <caret line="766" column="34" selection-start-line="766" selection-start-column="34" selection-end-line="766" selection-end-column="34" />
+          <folding>
+            <element signature="n#pe011#0" expanded="false" />
+            <element signature="n#pe013#0" expanded="false" />
+            <element signature="n#pe014#0" expanded="false" />
+            <element signature="n#pe016#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
