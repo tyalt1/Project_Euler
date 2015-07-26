@@ -3,7 +3,7 @@
 (require
   '[project_euler_lib :as pelib]
   '[clojure.string :only (split)]
-  '[clojure.set :only (difference)]
+  '[clojure.set :only (difference union)]
   '[contrib.math.combinatorics :as combo :only (permutations)]
   '[contrib.math.numeric-tower :as numeric])
 
@@ -710,6 +710,27 @@
                      (if-let [v (some #(if (pelib/prime? %) % nil) (map - tops bots))]
                        v
                        (recur (inc c)))))))
+
+
+;;Problem 51
+;;Find the smallest prime which, by replacing any of the digits, results in 8 primes.
+;  (->> (pelib/lazy-primes) (drop-while #(< % 56e3)) (map (fn [n] (pelib/digit-list n))))
+(defn pe051 []
+  (letfn [(build-mask-children [xs] (map (fn [dvec] (loop [rs #{dvec}, i (dec (count dvec))]
+                                                      (if (zero? i)
+                                                        (conj rs (assoc (vec dvec) 0 :wc))
+                                                        (recur (conj rs (assoc (vec dvec) i :wc)) (dec i)))))
+                                      xs))
+          (build-masks [n] (let [dvec (vec (pelib/digit-list n))]
+                             (loop [rs #{dvec}, i (dec (count dvec))]
+                               (if (zero? i)
+                                 rs
+                                 (recur (apply clojure.set/union rs (build-mask-children rs)) (dec i))))))]
+    (first (for [nums (->> (pelib/lazy-primes) (drop-while #(< % 121e3)) (take-while #(< % 122e3)))
+                 masked-nums (build-masks nums)
+                 :let [primes (distinct (filter pelib/prime? (map #(pelib/from-digit-list (replace {:wc %} masked-nums)) (range 10))))]
+                 :when (>= (count primes) 8)]
+             nums))))
 
 
 ;;Problem 52
