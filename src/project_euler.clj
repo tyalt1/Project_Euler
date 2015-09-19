@@ -258,16 +258,12 @@
 ;;Give a sequence (if (even? n) (next n/2) (next 3n+1))
 ;;Which starting number, under one million, produces the longest chain.
 (defn pe014 []
-  (let [collatz-seq (fn [start-num] (loop [n start-num, so-far []]
-                                      (if (= n 1)
-                                        (conj so-far 1)
-                                        (if (even? n)
-                                          (recur (/ n 2) (conj so-far n))
-                                          (recur (inc (* 3 n)) (conj so-far n))))))]
+  (letfn [(collatz-seq [start-num] (loop [n start-num, so-far '()]
+                                      (cond (= n 1)   (conj so-far 1)
+                                            (even? n) (recur (/ n 2) (conj so-far n))
+                                            :else     (recur (inc (* 3 n)) (conj so-far n)))))]
     (->> (range 1 1000001)
-      (map (fn [x] (list x (count (collatz-seq x)))))
-      (sort (fn [x y] (> (second x) (second y))))
-      (first)
+      (sort-by (comp count collatz-seq) >)
       (first))))
 
 
