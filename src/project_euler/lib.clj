@@ -1,0 +1,65 @@
+(ns project-euler.lib
+  (:require [clojure.math.numeric-tower :as numeric :only (sqrt)]))
+
+;;Digit Manipulation
+(defn digit-list
+  "Turns number n into a list of its digits.
+  Assumes base 10 if no base is given"
+  ([n] (digit-list n 10))
+  ([n base] (loop [n n, lst '()]
+              (if (< n base)
+                (cons (num n) lst)
+                (recur (quot n base) (cons (num (rem n base)) lst))))))
+
+(defn from-digit-list
+  "Concatenates a sequence of numbers into one number.
+  Assumes base 10 if no base is given"
+  ([xs] (from-digit-list xs 10))
+  ([xs base] (loop [digits xs, n (bigint 0)]
+               (if (empty? digits)
+                 (if (< n java.lang.Long/MAX_VALUE)
+                   (long n)
+                   n)
+                 (recur (rest digits) (+ (* n base) (first digits)))))))
+
+;;Boolean Checks
+(defn prime?
+  "Returns true if n is prime."
+  [n] (cond
+        (= n 2)   true
+        (= n 1)   false
+        (even? n) false
+        :else     (let [root (numeric/sqrt n)]
+                    (loop [i 3] (cond
+                                  (> i root)        true
+                                  (zero? (rem n i)) false
+                                  :else             (recur (+ 2 i)))))))
+(def prime? (memoize prime?))
+
+(defn seq-palindrome?
+  "Returns true if xs is a palindrome.
+  Uses = to check if ends are equal."
+  [xs] (cond
+         (> 2 (count xs))         true
+         (= (first xs) (last xs)) (recur (rest (butlast xs)))
+         :else                    false))
+
+;;Lazy Sequences
+(defn lazy-fib
+  "Lazy sequence of fibonacci numbers.
+  Default: x=1, y=1"
+  ([] (lazy-fib 1 1))
+  ([x y] (cons x (lazy-seq (lazy-fib y (+ x y))))))
+
+(defn lazy-prime
+  "Lazy sequence of prime numbers."
+  [] (filter prime? (iterate inc 2)))
+
+;;Utilities
+(defn factors
+  "Return a set of factors of n."
+  [n] (into (sorted-set)
+            (reduce concat
+                    (for [x (range 1 (inc (numeric/sqrt n)))
+                          :when (zero? (rem n x))]
+                      [x (/ n x)]))))
