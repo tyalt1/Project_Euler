@@ -51,3 +51,6 @@
          :when (= (+ a b c) 1000)
          :when (= (+ (numeric/expt a 2) (numeric/expt b 2)) (numeric/expt c 2))]
      (* a b c))))
+
+(defn pe010 []
+  (apply + (take-while #(< % 2e6) (pelib/lazy-prime))))
