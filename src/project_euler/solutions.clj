@@ -42,3 +42,12 @@
         (if (< maximum product)
           (recur (rest x) product)
           (recur (rest x) maximum))))))
+
+(defn pe009 []
+  (first
+   (for [a (range 1 1001)
+         b (range a (- 1001 a))
+         c (range (inc b) (- 1001 a b))
+         :when (= (+ a b c) 1000)
+         :when (= (+ (numeric/expt a 2) (numeric/expt b 2)) (numeric/expt c 2))]
+     (* a b c))))

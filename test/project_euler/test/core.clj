@@ -1,4 +1,4 @@
-(ns project_euler.test.core
+(ns project-euler.test.core
   (:use [project-euler.solutions]
         [clojure.test :only (deftest testing is)]))
 
@@ -12,4 +12,5 @@
     (is (= (pe006) 25164150))
     (is (= (pe007) 104743))
     (is (= (pe008) 23514624000))
+    (is (= (pe009) 31875000))
     ))
