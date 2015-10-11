@@ -277,3 +277,7 @@
   how many possible routes are there?"
   [] (long (/ (pelib/fact 40)
               (math/expt (pelib/fact 20) 2))))
+
+(defn pe016
+  "Digit sum of 2^1000."
+  [] (long (apply + (pelib/digit-list (math/expt 2 1000)))))
