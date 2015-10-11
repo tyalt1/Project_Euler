@@ -1,5 +1,5 @@
 (ns project-euler.lib
-  (:require [clojure.math.numeric-tower :as numeric :only (sqrt)]))
+  (:require [clojure.math.numeric-tower :as math :only (sqrt)]))
 
 ;;Digit Manipulation
 (defn digit-list
@@ -29,7 +29,7 @@
         (= n 2)   true
         (= n 1)   false
         (even? n) false
-        :else     (let [root (numeric/sqrt n)]
+        :else     (let [root (math/sqrt n)]
                     (loop [i 3] (cond
                                   (> i root)        true
                                   (zero? (rem n i)) false
@@ -64,6 +64,6 @@
   "Return a set of factors of n."
   [n] (into (sorted-set)
             (reduce concat
-                    (for [x (range 1 (inc (numeric/sqrt n)))
+                    (for [x (range 1 (inc (math/sqrt n)))
                           :when (zero? (rem n x))]
                       [x (/ n x)]))))

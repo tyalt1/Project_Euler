@@ -1,7 +1,7 @@
 (ns project-euler.solutions
   (:require [project-euler.lib :as pelib]
             [clojure.string :only (split)]
-            [clojure.math.numeric-tower :as numeric :only (expt)]))
+            [clojure.math.numeric-tower :as math :only (expt)]))
 
 (defn pe001
   "Sum of all the multiples of 3 and 5 below 1000."
@@ -35,14 +35,14 @@
 
 (defn pe005
   "Smallest positive number evenly divisible by the numbers 1 to 20."
-  [] (* (numeric/expt 2 4) (numeric/expt 3 2) 5 7 11 13 17 19))
+  [] (* (math/expt 2 4) (math/expt 3 2) 5 7 11 13 17 19))
 
 (defn pe006
   "Difference between the sum of the squares of the first 100 natural numbers
   and the square of the sum."
   [] (let [nat-nums (range 1 101)]
-       (- (numeric/expt (apply + nat-nums) 2)
-          (apply + (map #(numeric/expt % 2) nat-nums)))))
+       (- (math/expt (apply + nat-nums) 2)
+          (apply + (map #(math/expt % 2) nat-nums)))))
 
 (defn pe007
   "10,001st prime number."
@@ -69,8 +69,8 @@
             b (range a (- 1001 a))
             c (range (inc b) (- 1001 a b))
             :when (= (+ a b c) 1000)
-            :when (= (+ (numeric/expt a 2) (numeric/expt b 2))
-                     (numeric/expt c 2))]
+            :when (= (+ (math/expt a 2) (math/expt b 2))
+                     (math/expt c 2))]
         (* a b c))))
 
 (defn pe010
