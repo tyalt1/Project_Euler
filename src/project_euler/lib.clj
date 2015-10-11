@@ -67,3 +67,11 @@
                     (for [x (range 1 (inc (math/sqrt n)))
                           :when (zero? (rem n x))]
                       [x (/ n x)]))))
+
+(defn fact
+  "Factorial of n."
+  [n] (loop [n n
+             r (bigint n)]
+        (if (zero? n)
+          r
+          (recur (dec n) (* r n)))))

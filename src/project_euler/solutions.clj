@@ -270,3 +270,8 @@
                                           i
                                           (recur (collatz n) (inc i)))))]
        (apply max-key collatz-seq-len (range 1 1e6))))
+
+(defn pe015
+  ""
+  [] (long (/ (pelib/fact 40)
+              (math/expt (pelib/fact 20) 2))))
