@@ -281,3 +281,19 @@
 (defn pe016
   "Digit sum of 2^1000."
   [] (long (apply + (pelib/digit-list (math/expt 2 1000)))))
+
+(defn pe017
+  "Sum of letters in numbers 1 to 1000."
+  [] (let [oneToNine 36
+           tenToNineteen 70
+           twentyToNintynine (+ (* 10 46) ;prefixes 10 times
+                                (* 8 oneToNine) ;1-9 occur 8 times
+                                )
+           oneToNintynine (+ oneToNine tenToNineteen twentyToNintynine)
+           oneHundredTo999 (+ (* oneToNine 100) ;1-9 100 times
+                              (* 9 oneToNintynine) ;9 of 1-99
+                              (* 7 9) ;9 of "hundred"
+                              (* 9 99 10) ;time "hundred and" occur 99*9 times
+                              )
+           oneThousand 11]
+       (+ oneToNintynine oneHundredTo999 oneThousand)))
