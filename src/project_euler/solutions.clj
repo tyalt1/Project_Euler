@@ -127,3 +127,6 @@
                                   (up-left i j)
                                   (down-right i j)
                                   (down-left i j))))))))
+
+(defn pe012 []
+  (first (filter #(> (count (pelib/factors %)) 501) (pelib/lazy-triangular))))

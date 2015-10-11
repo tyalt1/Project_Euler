@@ -49,11 +49,15 @@
   "Lazy sequence of fibonacci numbers.
   Default: x=1, y=1"
   ([] (lazy-fib 1 1))
-  ([x y] (cons x (lazy-seq (lazy-fib y (+ x y))))))
+  ([x y] (map first (iterate (fn [[a b]] [b (+ a b)]) [x y]))))
 
 (defn lazy-prime
   "Lazy sequence of prime numbers."
   [] (filter prime? (iterate inc 2)))
+
+(defn lazy-triangular
+  "Lazy sequence of triangular numbers."
+  [] (map first (iterate (fn [[i j]] [(+ i j) (inc j)]) [1 2])))
 
 ;;Utilities
 (defn factors
