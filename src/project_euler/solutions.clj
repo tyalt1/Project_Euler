@@ -259,3 +259,14 @@
               (bigint 20849603980134001723930671666823555245252804609722)
               (bigint 53503534226472524250874054075591789781264330331690)]]
        (->> (apply + v) (pelib/digit-list) (take 10) (pelib/from-digit-list))))
+
+(defn pe014
+  "collatz(n) = n/2 (if even) or 3n+1 (if odd)
+  Which starting number, under 1 million, will make the longest collatz sequence."
+  [] (letfn [(collatz [n] (if (even? n) (quot n 2) (inc (* n 3))))
+             (collatz-seq-len [start] (loop [n start
+                                             i 0]
+                                        (if (= n 1)
+                                          i
+                                          (recur (collatz n) (inc i)))))]
+       (apply max-key collatz-seq-len (range 1 1e6))))
