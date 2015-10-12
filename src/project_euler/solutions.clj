@@ -333,3 +333,10 @@
                              (.get date
                                    java.util.GregorianCalendar/DAY_OF_WEEK))))
        (count)))
+
+(defn pe020
+  "Digit sum of 100 factorial."
+  [] (->> (pelib/fact 100)
+       (pelib/digit-list)
+       (apply +)
+       (long)))
