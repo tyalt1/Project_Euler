@@ -322,3 +322,14 @@
        (->> (reverse tri)
          (reduce merge-rows)
          (first))))
+
+(defn pe019
+  "How many Sundays fall on the first of the month during the 20th century.
+  20th century is from Jan 1, 1901 to Dec 31 2000."
+  [] (->> (for [year (range 1901 2001)
+                month (range 12)]
+            (java.util.GregorianCalendar. year month 1))
+       (filter (fn [date] (= java.util.GregorianCalendar/SUNDAY
+                             (.get date
+                                   java.util.GregorianCalendar/DAY_OF_WEEK))))
+       (count)))
