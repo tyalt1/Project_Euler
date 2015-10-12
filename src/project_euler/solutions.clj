@@ -340,3 +340,17 @@
        (pelib/digit-list)
        (apply +)
        (long)))
+
+(defn pe021
+  "Let d(n) be the sum of proper divisors of n.
+  If d(a) = b and d(b) = a and a != b, then a and b are amicable numbers.
+  Sum of all amicable numbers under 10000"
+  [] (letfn [(d [n] (apply + (pelib/divisors n)))]
+       (->> (for [i (range 1e4)
+                  :let [j (d i)]
+                  :when (and (not= i j)
+                             (= (d j) i))]
+              [i j])
+         (flatten)
+         (distinct)
+         (apply +))))
