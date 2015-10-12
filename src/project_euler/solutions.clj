@@ -1,6 +1,6 @@
 (ns project-euler.solutions
   (:require [project-euler.lib :as pelib]
-            [clojure.string :only (split)]
+            [clojure.string :as string :only (split replace)]
             [clojure.math.numeric-tower :as math :only (expt)]))
 
 (defn pe001
@@ -353,4 +353,19 @@
               [i j])
          (flatten)
          (distinct)
+         (apply +))))
+
+(defn pe022
+  "Given a text file of names, what is the total score of the names.
+  A name's score the sum of the letter valus times the place.
+  A letter value is defined as A=1, B=2, and so on..."
+  [] (let [names (map #(string/replace % "\"" "")
+                      (string/split (slurp "resources/p022_names.txt") #","))
+           letter-val (fn [letter]
+                        (inc (- (int (java.lang.Character/toUpperCase letter))
+                                (int \A))))
+           name-score (fn [name] (apply + (map letter-val (seq name))))]
+       (->> (sort names)
+         (map name-score)
+         (map * (iterate inc 1))
          (apply +))))

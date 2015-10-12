@@ -1,5 +1,5 @@
 (ns project-euler.lib
-  (:require [clojure.set :only (difference)]
+  (:require [clojure.set :as set :only (difference)]
             [clojure.math.numeric-tower :as math :only (sqrt)]))
 
 ;;Digit Manipulation
@@ -72,7 +72,7 @@
 (defn divisors
   "Returns a set of proper divisors.
   Same as factors, but without n."
-  [n] (clojure.set/difference (factors n) #{n}))
+  [n] (set/difference (factors n) #{n}))
 
 (defn fact
   "Factorial of n."
