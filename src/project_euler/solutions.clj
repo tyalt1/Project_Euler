@@ -369,3 +369,16 @@
          (map name-score)
          (map * (iterate inc 1))
          (apply +))))
+
+(defn pe023
+  "In an abundant number, the sum of it's proper divisors exceed it.
+  Any number over 28123 can be written as a sum of two abundant numbers.
+  12 is the smallest abundant number.
+  Find the sum of all positive numbers that are not the sum of two abundant numbers."
+  [] (letfn [(abundant? [n] (> (apply + (pelib/divisors n)) n))
+             (abundant-nums [] (filter abundant? (range 12 28123)))]
+       (apply + (remove (set (for [a [(abundant-nums)]
+                                   i a
+                                   j a]
+                               (+ i j)))
+                        (range 1 28123)))))
