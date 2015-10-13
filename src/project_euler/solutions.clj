@@ -1,7 +1,8 @@
 (ns project-euler.solutions
   (:require [project-euler.lib :as pelib]
             [clojure.string :as string :only (split replace)]
-            [clojure.math.numeric-tower :as math :only (expt)]))
+            [clojure.math.numeric-tower :as math :only (expt)]
+            [clojure.math.combinatorics :as combo :only (nth-permutation)]))
 
 (defn pe001
   "Sum of all the multiples of 3 and 5 below 1000."
@@ -27,9 +28,8 @@
   "Largest palindromic number that is a product of 2 3-digit numbers."
   [] (apply max (for [i (range 100 1000)
                       j (range 100 1000)
-                      :let [x (* i j)
-                            f (comp pelib/seq-palindrome?
-                                    pelib/digit-list)]
+                      x [(* i j)]
+                      f [(comp pelib/seq-palindrome? pelib/digit-list)]
                       :when (f x)]
                   x)))
 
@@ -154,7 +154,7 @@
 (defn pe012
   "First triangular number with 500 divisors."
   [] (first
-      (filter #(> (count (pelib/factors %)) 501) (pelib/lazy-triangular))))
+      (filter #(>= (count (pelib/factors %)) 500) (pelib/lazy-triangular))))
 
 (defn pe013
   "First ten digits of the sum of the given 100 50-digit numbers."
@@ -347,7 +347,7 @@
   Sum of all amicable numbers under 10000"
   [] (letfn [(d [n] (apply + (pelib/divisors n)))]
        (->> (for [i (range 1e4)
-                  :let [j (d i)]
+                  j [(d i)]
                   :when (and (not= i j)
                              (= (d j) i))]
               [i j])
@@ -382,3 +382,15 @@
                                    j a]
                                (+ i j)))
                         (range 1 28123)))))
+
+(defn pe024
+  "The 1 millionth permutation of the digits 0 to 9."
+  [] (pelib/from-digit-list (combo/nth-permutation (vec (range 10)) 999999)))
+
+(defn pe025
+  "The first number with 1000 digits."
+  [] (let [digit-count (comp count str)]
+       (->> (pelib/lazy-fib 1N 1N)
+         (map vector (iterate inc 1))
+         (filter (fn [[_ f]] (>= (digit-count f) 1e3)))
+         (ffirst))))
