@@ -388,9 +388,22 @@
   [] (pelib/from-digit-list (combo/nth-permutation (vec (range 10)) 999999)))
 
 (defn pe025
-  "The first number with 1000 digits."
+  "The first fibonacci number with 1000 digits."
   [] (let [digit-count (comp count str)]
        (->> (pelib/lazy-fib 1N 1N)
          (map vector (iterate inc 1))
          (filter (fn [[_ f]] (>= (digit-count f) 1e3)))
          (ffirst))))
+
+(defn pe026
+  "Find 0<d<1000 where 1/d results in the longest repeating cycle of digits.
+  Using Fermat's"
+  [] (letfn [(find-decimal-repeat [d] (loop [period 1]
+                                        (if (= 1 (mod (math/expt 10 period) d))
+                                          period
+                                          (recur (inc period)))))]
+       (loop [dseq (reverse (take-while #(< % 1000) (pelib/lazy-prime)))]
+         (let [head (first dseq)]
+           (if (= (dec head) (find-decimal-repeat head))
+             head
+             (recur (rest dseq)))))))
