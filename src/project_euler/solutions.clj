@@ -424,3 +424,9 @@
               [(* a b) c])
          (max-key second)
          (ffirst))))
+
+(defn pe028
+  "Starting wiht 1 and moving to the right, clockwise, form a spiral of numbers.
+  What is the sum of the numbers on the diagonals for a 1001x1001 spiral?"
+  [] (apply + (take 2001 (reductions + 1 (mapcat #(repeat 4 %)
+                                                 (iterate #(+ 2 %) 2))))))
