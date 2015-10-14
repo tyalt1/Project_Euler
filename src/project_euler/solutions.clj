@@ -430,3 +430,18 @@
   What is the sum of the numbers on the diagonals for a 1001x1001 spiral?"
   [] (apply + (take 2001 (reductions + 1 (mapcat #(repeat 4 %)
                                                  (iterate #(+ 2 %) 2))))))
+
+(defn pe029
+  "For 2<=a<=100, 2<=b<=100, how many distinct terms does a^b generate?"
+  [] (->> (for [a (range 2 101)
+                b (range 2 101)]
+            (math/expt a b))
+       (distinct)
+       (count)))
+
+(defn pe030
+  "Find the sum of all the numbers that can be written as the sum
+  of the fifth power of their digits."
+  [] (letfn [(to-the-fifth [n] (math/expt n 5))
+             (f [x] (= x (apply + (map to-the-fifth (pelib/digit-list x)))))]
+       (apply + (filter f (range 2 2e5)))))
