@@ -445,3 +445,18 @@
   [] (letfn [(to-the-fifth [n] (math/expt n 5))
              (f [x] (= x (apply + (map to-the-fifth (pelib/digit-list x)))))]
        (apply + (filter f (range 2 2e5)))))
+
+(defn- make-change
+  "Returns how many ways you can make change with values in denominations list."
+  [denominations]
+  (letfn [(change [c v] (let [f (first c)]
+                          (if (= f 1)
+                            1
+                            (reduce + (for [n (range 0 (inc (quot v f)))]
+                                        (change (rest c) (- v (* n f))))))))]
+       (change (sort-by num > denominations) (apply max denominations))))
+
+(defn pe031
+  "In England, mony comes in denominations of 1p, 2p, 5p, 10p, 20p, 50p, 100p, 200p
+  How many ways can you make 2 pounds? (2 pounds is 200 pence)"
+  [] (make-change '(1 2 5 10 20 50 100 200)))
