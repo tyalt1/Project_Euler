@@ -2,6 +2,11 @@
   (:require [clojure.set :as set :only (difference)]
             [clojure.math.numeric-tower :as math :only (sqrt)]))
 
+(defn- truncate-to-long
+  [n] (if (< n java.lang.Long/MAX_VALUE)
+        (long n)
+        n))
+
 ;;Digit Manipulation
 (defn digit-list
   "Turns number n into a list of its digits.
@@ -18,9 +23,7 @@
   ([xs] (from-digit-list xs 10))
   ([xs base] (loop [digits xs, n (bigint 0)]
                (if (empty? digits)
-                 (if (< n java.lang.Long/MAX_VALUE)
-                   (long n)
-                   n)
+                 (truncate-to-long n)
                  (recur (rest digits) (+ (* n base) (first digits)))))))
 
 ;;Boolean Checks
@@ -29,9 +32,8 @@
   (memoize
    (fn [n]
      (cond
-       (<= n 0)  false
+       (<= n 1)  false
        (= n 2)   true
-       (= n 1)   false
        (even? n) false
        :else     (let [root (math/sqrt n)]
                    (loop [i 3] (cond
@@ -77,5 +79,5 @@
   [n] (set/difference (factors n) #{n}))
 
 (defn fact
-  "Factorial of n."
+  "Factorial of n. Returns a BigInt."
   [n] (apply * (range 1N (inc n))))
