@@ -49,6 +49,10 @@
          (= (first xs) (last xs)) (recur (rest (butlast xs)))
          :else                    false))
 
+(defn pandigital?
+  "Returns true if the digits (start to end) appear in n once."
+  ([start end n] (= (range start (inc end)) (sort (digit-list n)))))
+
 ;;Lazy Sequences
 (defn lazy-fib
   "Lazy sequence of fibonacci numbers.

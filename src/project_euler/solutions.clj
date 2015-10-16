@@ -462,6 +462,18 @@
   How many ways can you make 2 pounds? (2 pounds is 200 pence)"
   [] (make-change '(1 2 5 10 20 50 100 200) 200))
 
+(defn pe032
+  "A pandigital number has all digits, 1 to n, exactly once.
+  Find the sum of products where the multiplicand/multplier/product
+  are 1 to 9 pandigital."
+  [] (->> (for [i (range 2 5000)
+                j (range i (/ 9999 i))
+                r [(* i j)]
+                :when (pelib/pandigital? 1 9 (Integer/parseInt (str i j r)))]
+            r)
+       (distinct)
+       (apply +)))
+
 (defn pe067
   "Find the maximum sum from the top of a given triangle to the bottom.
   Same as problem 18, but with a larger try given in a file."
