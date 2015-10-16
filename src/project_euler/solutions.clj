@@ -413,14 +413,12 @@
   "For |a|<1000, |b|<1000, find the product of a and b where
   n^2+an+b returns the most amount of consecutive primes."
   [] (letfn [(quad [a b n] (+ (* n n) (* a n) b))
-             (consecutive-primes [a b] (loop [n 0, xs '()]
-                                         (let [ans (quad a b n)]
-                                           (if (pelib/prime? ans)
-                                             (recur (inc n) (conj xs ans))
-                                             xs))))]
+             (gen-quad [a b] (map #(quad a b %) (iterate inc 0)))]
        (->> (for [a (range -999 1000)
                   b (range -999 1000)
-                  c [(count (consecutive-primes a b))]
+                  c [(count (take-while #(and (> % 0)
+                                              (pelib/prime? %))
+                                        (gen-quad a b)))]
                   :when (> c 65)]
               [(* a b) c])
          (max-key second)
