@@ -462,6 +462,15 @@
   How many ways can you make 2 pounds? (2 pounds is 200 pence)"
   [] (make-change '(1 2 5 10 20 50 100 200) 200))
 
+(defn pe067
+  "Find the maximum sum from the top of a given triangle to the bottom.
+  Same as problem 18, but with a larger try given in a file."
+  [] (let [tri (map (fn [line] (map #(Integer/parseInt %) (re-seq #"\d+" line)))
+                    (string/split (slurp "resources/p067_triangle.txt") #"\n"))]
+       (->> (reverse tri)
+         (reduce merge-rows)
+         (first))))
+
 (defn pe076
   "How many distinct ways can you count to 100 with at least 2 positive integers."
   [] (make-change (range 1 100) 100))
