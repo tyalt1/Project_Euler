@@ -3,7 +3,10 @@
         [clojure.test :only (deftest are)]))
 
 (deftest all-solutions
-  (are [f n] (= (f) n)
+  (are [f n] (do (println "Testing"
+                          (re-find (re-matcher #"pe\d{3}" (str f)))
+                          "...")
+               (= (f) n))
        pe001 233168
        pe002 4613732
        pe003 6857
