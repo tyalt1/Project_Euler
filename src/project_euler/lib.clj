@@ -24,18 +24,20 @@
                  (recur (rest digits) (+ (* n base) (first digits)))))))
 
 ;;Boolean Checks
-(defn prime?
+(def prime?
   "Returns true if n is prime."
-  [n] (cond
-        (= n 2)   true
-        (= n 1)   false
-        (even? n) false
-        :else     (let [root (math/sqrt n)]
-                    (loop [i 3] (cond
-                                  (> i root)        true
-                                  (zero? (rem n i)) false
-                                  :else             (recur (+ 2 i)))))))
-(def prime? (memoize prime?))
+  (memoize
+   (fn [n]
+     (cond
+       (<= n 0)  false
+       (= n 2)   true
+       (= n 1)   false
+       (even? n) false
+       :else     (let [root (math/sqrt n)]
+                   (loop [i 3] (cond
+                                 (> i root)        true
+                                 (zero? (rem n i)) false
+                                 :else             (recur (+ 2 i)))))))))
 
 (defn seq-palindrome?
   "Returns true if xs is a palindrome.

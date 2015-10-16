@@ -416,9 +416,7 @@
              (gen-quad [a b] (map #(quad a b %) (iterate inc 0)))]
        (->> (for [a (range -999 1000)
                   b (range -999 1000)
-                  c [(count (take-while #(and (> % 0)
-                                              (pelib/prime? %))
-                                        (gen-quad a b)))]
+                  c [(count (take-while pelib/prime? (gen-quad a b)))]
                   :when (> c 65)]
               [(* a b) c])
          (max-key second)
