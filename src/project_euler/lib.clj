@@ -76,8 +76,4 @@
 
 (defn fact
   "Factorial of n."
-  [n] (loop [n n
-             r (bigint n)]
-        (if (zero? n)
-          r
-          (recur (dec n) (* r n)))))
+  [n] (apply * (range 1N (inc n))))

@@ -275,8 +275,9 @@
   "Starting in the top left corner of a 20x20 grid,
   only being able to move right and down,
   how many possible routes are there?"
-  [] (long (/ (pelib/fact 40)
-              (math/expt (pelib/fact 20) 2))))
+  [] (let [f40 (pelib/fact 40)
+           f20 (pelib/fact 20)]
+       (long (/ f40 (* f20 f20)))))
 
 (defn pe016
   "Digit sum of 2^1000."
@@ -447,16 +448,24 @@
        (apply + (filter f (range 2 2e5)))))
 
 (defn- make-change
-  "Returns how many ways you can make change with values in denominations list."
-  [denominations]
-  (letfn [(change [c v] (let [f (first c)]
-                          (if (= f 1)
-                            1
-                            (reduce + (for [n (range 0 (inc (quot v f)))]
-                                        (change (rest c) (- v (* n f))))))))]
-       (change (sort-by num > denominations) (apply max denominations))))
+  "Returns how many ways you can make change with values in denominations list.
+  Helper function pe031 and pe076."
+  [denominations target]
+  (let [lower (apply min denominations)
+        change (promise)]
+    (deliver change (memoize (fn [c v]
+                               (let [f (first c)]
+                                 (if (= f lower)
+                                   lower
+                                   (apply + (for [n (range 0 (inc (quot v f)))]
+                                              (@change (rest c) (- v (* n f))))))))))
+    (@change (sort-by num > denominations) target)))
 
 (defn pe031
   "In England, mony comes in denominations of 1p, 2p, 5p, 10p, 20p, 50p, 100p, 200p
   How many ways can you make 2 pounds? (2 pounds is 200 pence)"
-  [] (make-change '(1 2 5 10 20 50 100 200)))
+  [] (make-change '(1 2 5 10 20 50 100 200) 200))
+
+(defn pe076
+  "How many distinct ways can you count to 100 with at least 2 positive integers."
+  [] (make-change (range 1 100) 100))
