@@ -79,7 +79,7 @@
 
 (defn pe011
   "Largest product of 4 adjacent numbers in a given 20x20 grid."
-  [] (let [matrix [[8  2 22 97 38 15  0 40  0 75  4  5  7 78 52 12 50 77 91  8]
+  [] (let [matrix [[ 8  2 22 97 38 15  0 40  0 75  4  5  7 78 52 12 50 77 91  8]
                    [49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48  4 56 62  0]
                    [81 49 31 73 55 79 14 29 93 71 40 67 53 88 30  3 49 13 36 65]
                    [52 70 95 23  4 60 11 42 69 24 68 56  1 32 56 71 37  2 36 91]
@@ -360,15 +360,13 @@
   "Given a text file of names, what is the total score of the names.
   A name's score the sum of the letter valus times the place.
   A letter value is defined as A=1, B=2, and so on..."
-  [] (let [names (map #(string/replace % "\"" "")
-                      (string/split (slurp "resources/p022_names.txt") #","))
-           letter-val (fn [letter]
-                        (inc (- (int (java.lang.Character/toUpperCase letter))
-                                (int \A))))
-           name-score (fn [name] (apply + (map letter-val (seq name))))]
-       (->> (sort names)
+  [] (letfn [(letter-val [letter]
+               (inc (- (int (java.lang.Character/toUpperCase letter))
+                       (int \A))))
+             (name-score [name] (apply + (map letter-val (seq name))))]
+       (->> (sort (re-seq #"\w+" (slurp "resources/p022_names.txt")))
          (map name-score)
-         (map * (iterate inc 1))
+         (map-indexed (fn [index n] (* (inc index) n)))
          (apply +))))
 
 (defn pe023
