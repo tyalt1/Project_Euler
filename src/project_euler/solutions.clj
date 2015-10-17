@@ -426,7 +426,7 @@
   "Starting wiht 1 and moving to the right, clockwise, form a spiral of numbers.
   What is the sum of the numbers on the diagonals for a 1001x1001 spiral?"
   [] (apply + (take 2001 (reductions + 1 (mapcat #(repeat 4 %)
-                                                 (iterate #(+ 2 %) 2))))))
+                                                 (iterate (partial + 2) 2))))))
 
 (defn pe029
   "For 2<=a<=100, 2<=b<=100, how many distinct terms does a^b generate?"
@@ -488,6 +488,14 @@
             rside)
        (apply *)
        (denominator)))
+
+(defn pe034
+  "A curious number is equal to the sum of the factorial of it's digits.
+  Find the sum of all curious numbes."
+  [] (apply + (for [i (range 10 45e3)
+                    fact-sum [(apply + (map pelib/fact (pelib/digit-list i)))]
+                    :when (= i fact-sum)]
+                i)))
 
 (defn pe067
   "Find the maximum sum from the top of a given triangle to the bottom.
