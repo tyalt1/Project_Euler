@@ -54,6 +54,10 @@
   ([n] (pandigital? 1 9 n))
   ([start end n] (= (range start (inc end)) (sort (digit-list n)))))
 
+(defn triangular?
+  "Returns true if n is triangular."
+  [n] (integer? (math/sqrt (inc (* 8 n)))))
+
 ;;Lazy Sequences
 (defn lazy-fib
   "Lazy sequence of fibonacci numbers.

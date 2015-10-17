@@ -569,6 +569,16 @@
                       :when (pelib/pandigital? 1 n p)]
                   p)))
 
+(defn pe042
+  "Given a file of words, how many of the strings are triangular numbers?"
+  [] (letfn [(letter-val [letter]
+               (inc (- (int (java.lang.Character/toUpperCase letter))
+                       (int \A))))
+             (word-score [word] (apply + (map letter-val (seq word))))]
+       (->> (re-seq #"\w+" (slurp "resources/p042_words.txt"))
+        (filter (comp pelib/triangular? word-score))
+        (count))))
+
 (defn pe067
   "Find the maximum sum from the top of a given triangle to the bottom.
   Same as problem 18, but with a larger try given in a file."
