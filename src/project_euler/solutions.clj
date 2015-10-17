@@ -497,6 +497,26 @@
                     :when (= i fact-sum)]
                 i)))
 
+(defn pe035
+  "A circular prime is a prime number where all of it's rotations of its digits.
+  How many circular primes are under 1 million?"
+  [] (letfn [(rotations [n] (let [xs (pelib/digit-list n)
+                                  mag (count xs)]
+                              (map pelib/from-digit-list
+                                   (take mag (partition mag 1 (cycle xs))))))]
+       (->> (take-while #(< % 1e6) (pelib/lazy-prime))
+         (map rotations)
+         (filter (partial every? pelib/prime?))
+         (count))))
+
+(defn pe036
+  "Find the sum of all numbers under 1 million that are palindromic
+  in base 10 and base 2."
+  [] (->> (range 1 1e6)
+       (filter (comp pelib/seq-palindrome? #(pelib/digit-list % 10)))
+       (filter (comp pelib/seq-palindrome? #(pelib/digit-list % 2)))
+       (apply +)))
+
 (defn pe067
   "Find the maximum sum from the top of a given triangle to the bottom.
   Same as problem 18, but with a larger try given in a file."
