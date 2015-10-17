@@ -474,6 +474,21 @@
        (distinct)
        (apply +)))
 
+(defn pe033
+  "Curious fractions are fractions where the digits cancel to get the right reduction.
+  There are 4 non-trivial examples where the numerator or denominator.
+  Find the product of these fractions and find the denominator."
+  [] (->> (for [i (range 1 10)
+                d (range 1 i)
+                n (range 1 d)
+                ;via math: (10n+i)/(10i+d) = n/d
+                lside [(/ (+ (* 10 n) i) (+ (* 10 i) d))]
+                rside [(/ n d)]
+                :when (= lside rside)]
+            rside)
+       (apply *)
+       (denominator)))
+
 (defn pe067
   "Find the maximum sum from the top of a given triangle to the bottom.
   Same as problem 18, but with a larger try given in a file."
