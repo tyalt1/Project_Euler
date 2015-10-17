@@ -554,8 +554,20 @@
                                  :when (= p (+ a b c))]
                              :validside))))
        (apply max-key second)
-       (first)
-       ))
+       (first)))
+
+(defn pe040
+  "Concatenate all the positive integers together. If dn is the nth digit,
+  find d1 * d10 * d1e2 * d1e3 * d1e4 * d1e5 * d1e6"
+  [] (let [lazy-idf (flatten (map pelib/digit-list (iterate inc 0)))]
+       (apply * (map (partial nth lazy-idf) '(1 10 1e2 1e3 1e4 1e5 1e6)))))
+
+(defn pe041
+  "What is the largest n-digit pandigital prime?"
+  [] (apply max (for [p (take-while #(< % 8e6) (pelib/lazy-prime))
+                      n (range 1 10)
+                      :when (pelib/pandigital? 1 n p)]
+                  p)))
 
 (defn pe067
   "Find the maximum sum from the top of a given triangle to the bottom.
