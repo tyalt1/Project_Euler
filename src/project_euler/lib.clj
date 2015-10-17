@@ -51,6 +51,7 @@
 
 (defn pandigital?
   "Returns true if the digits (start to end) appear in n once."
+  ([n] (pandigital? 1 9 n))
   ([start end n] (= (range start (inc end)) (sort (digit-list n)))))
 
 ;;Lazy Sequences

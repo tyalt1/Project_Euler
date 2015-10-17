@@ -1,7 +1,7 @@
 (ns project-euler.solutions
   (:require [project-euler.lib :as pelib]
             [clojure.string :as string :only (split replace)]
-            [clojure.math.numeric-tower :as math :only (expt)]
+            [clojure.math.numeric-tower :as math :only (expt sqrt)]
             [clojure.math.combinatorics :as combo :only (nth-permutation)]))
 
 (defn pe001
@@ -469,7 +469,7 @@
   [] (->> (for [i (range 2 5000)
                 j (range i (/ 9999 i))
                 r [(* i j)]
-                :when (pelib/pandigital? 1 9 (Integer/parseInt (str i j r)))]
+                :when (pelib/pandigital? (Integer/parseInt (str i j r)))]
             r)
        (distinct)
        (apply +)))
@@ -516,6 +516,46 @@
        (filter (comp pelib/seq-palindrome? #(pelib/digit-list % 10)))
        (filter (comp pelib/seq-palindrome? #(pelib/digit-list % 2)))
        (apply +)))
+
+(defn pe037
+  "A trucatable prime is still prime when you remove its digits
+  (from the left or from the right). Note 2, 3, 5, and 7 don't count.
+  Find the sum of all trucatable primes."
+  [] (letfn [(truc-left [x] (let [d (pelib/digit-list x)]
+                              (for [i (range (count d))]
+                                (pelib/from-digit-list (drop i d)))))
+             (truc-right [x] (let [d (pelib/digit-list x)]
+                               (for [i (range 1 (inc (count d)))]
+                                 (pelib/from-digit-list (take i d)))))]
+       (->> (drop 4 (take-while #(< % 75e4) (pelib/lazy-prime)))
+         (filter #(every? pelib/prime? (truc-left %)))
+         (filter #(every? pelib/prime? (truc-right %)))
+         (apply +))))
+
+(defn pe038
+  "Find the largest pandigital number that cant be formed by the
+  concatednated product of an interger range 1 to n."
+  [] (letfn [(mult-cat [n i] (bigint (apply str (map (partial * n)
+                                                     (range 1 (inc i))))))]
+       (long (apply max (for [n (range 1 1e4)
+                              i (range 2 10)
+                              prod [(mult-cat n i)]
+                              :when (pelib/pandigital? prod)]
+                          prod)))))
+
+(defn pe039
+  "Find the perimeter of a right triangle with the most combinations of side
+  lengths, where the perimeter is under 1000."
+  [] (->> (for [p (range 2 1001 2)]
+            (list p (count (for [a (range 1 (/ p 2))
+                                 b (range 1 (/ p 2))
+                                 c [(math/sqrt (+ (math/expt a 2)
+                                                  (math/expt b 2)))]
+                                 :when (= p (+ a b c))]
+                             :validside))))
+       (apply max-key second)
+       (first)
+       ))
 
 (defn pe067
   "Find the maximum sum from the top of a given triangle to the bottom.
