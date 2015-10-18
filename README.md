@@ -1,7 +1,7 @@
 # Project Euler
 
 Collection of all my solutions to problems on
-[Project Euler](https://projecteuler.net/progress)
+[Project Euler](https://projecteuler.net)
 .
 
 ![Project Euler Badge](https://projecteuler.net/profile/tyalt1.png)
