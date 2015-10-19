@@ -2,7 +2,7 @@
   (:require [project-euler.lib :as pelib]
             [clojure.string :as string :only (split replace)]
             [clojure.math.numeric-tower :as math :only (expt sqrt)]
-            [clojure.math.combinatorics :as combo :only (nth-permutation)]))
+            [clojure.math.combinatorics :as combo :only (nth-permutation permutations)]))
 
 (defn pe001
   "Sum of all the multiples of 3 and 5 below 1000."
@@ -576,6 +576,49 @@
        (->> (re-seq #"\w+" (slurp "resources/p042_words.txt"))
         (filter (comp pelib/triangular? word-score))
         (count))))
+
+(defn pe043
+  "Find the sum of all 0 to 9 pandigital numbers where:
+  -d2d3d4  is divisible by 2
+  -d3d4d5  is divisible by 3
+  -d4d5d6  is divisible by 5
+  -d5d6d7  is divisible by 7
+  -d6d7d8  is divisible by 11
+  -d7d8d9  is divisible by 13
+  -d8d9d10 is divisible by 17
+  Note: dn is the nth digit of the number d."
+  [] (letfn [(get-nums [number] (map pelib/from-digit-list
+                                     (->> (pelib/digit-list number)
+                                       (cycle)
+                                       (partition 3 1)
+                                       (take 8)
+                                       (drop 1))))]
+       (apply + (for [n (map pelib/from-digit-list
+                             (combo/permutations (range 10)))
+                      :when (every? identity
+                                    (map (comp zero? rem)
+                                         (get-nums n)
+                                         '(2 3 5 7 11 13 17)))]
+                  n))))
+
+(defn pe044
+  "Find the pair of pentagonal numbers that difference and sum
+  are both pentagonal and minimized."
+  [] (let [lazy-pentagonal (map #(/ (- (* 3 % %) %) 2) (iterate inc 1))]
+       (first (for [j lazy-pentagonal
+                    k (take-while #(< % j) lazy-pentagonal)
+                    diff [(- j k)]
+                    :when (every? pelib/pentagonal? [diff (+ j k)])]
+                diff))))
+
+(defn pe045
+  "T(285)=P(165)=H(143)=40755
+  Find the next triangular number that is also pentagonal and hexagonal."
+  [] (->> (pelib/lazy-triangular)
+       (filter pelib/pentagonal?)
+       (filter pelib/hexagonal?)
+       (drop 2)
+       (first)))
 
 (defn pe067
   "Find the maximum sum from the top of a given triangle to the bottom.

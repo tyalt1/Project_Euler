@@ -58,6 +58,14 @@
   "Returns true if n is triangular."
   [n] (integer? (math/sqrt (inc (* 8 n)))))
 
+(defn pentagonal?
+  "Returns true if n is pentagonal."
+  [n] (zero? (rem (inc (math/sqrt (inc (* 24 n)))) 6)))
+
+(defn hexagonal?
+  "Returns true if n is hexagonal."
+  [n] (zero? (rem (inc (Math/sqrt (inc (* 8 n)))) 4)))
+
 ;;Lazy Sequences
 (defn lazy-fib
   "Lazy sequence of fibonacci numbers.
