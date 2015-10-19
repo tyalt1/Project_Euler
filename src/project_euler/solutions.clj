@@ -620,6 +620,19 @@
        (drop 2)
        (first)))
 
+(defn pe046
+  "Goldbach's conjecture states every odd composite number can be written
+  as the sum of a prime and twice a square. This conjecture was false.
+  Find the smallest composite that cannot be written as such."
+  [] (letfn [(goldbach? [n] (some #(pelib/prime? (- n %))
+                                  (take-while #(< % n)
+                                              (map #(* 2 % %) (range)))))]
+       (->> (iterate inc 3)
+         (filter odd?)
+         (remove pelib/prime?)
+         (remove goldbach?)
+         (first))))
+
 (defn pe067
   "Find the maximum sum from the top of a given triangle to the bottom.
   Same as problem 18, but with a larger try given in a file."
