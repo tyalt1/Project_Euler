@@ -633,6 +633,41 @@
          (remove goldbach?)
          (first))))
 
+(defn pe047
+  "Find the first 4 consecutive numbers that have 4 distinct primes."
+  [] (letfn [(four-primes? [n] (= 4 (count (filter pelib/prime?
+                                                   (pelib/factors n)))))
+             (consecutive-sublists [xs] (->> (map-indexed vector xs)
+                                          (partition-by #(apply - %))
+                                          (map #(map last %))))]
+       (->> (filter four-primes? (iterate inc 1))
+         (consecutive-sublists)
+         (filter #(= (count %) 4))
+         (ffirst))))
+
+(defn pe048
+  "Find the last ten digits in the serise 1^1+2^2+3^2+...+1000^1000."
+  [] (->> (map math/expt (range 1 1001) (range 1 1001))
+       (apply +)
+       (pelib/digit-list)
+       (take-last 10)
+       (pelib/from-digit-list)))
+
+(defn pe049
+  "1487, 4817, and 8147 are 3330 apart, each prime, and permutations of eachother.
+  Find another set of 4-digit numbers and concatenate them."
+  [] (->> (take-while #(< % 3339)
+                      (drop-while #(< % 1000) (pelib/lazy-prime)))
+       (filter #(pelib/prime? (+ % 3330)))
+       (filter #(pelib/prime? (+ % 6660)))
+       (filter #(= (sort (pelib/digit-list %))
+                   (sort (pelib/digit-list (+ % 3330)))))
+       (filter #(= (sort (pelib/digit-list %))
+                   (sort (pelib/digit-list (+ % 6660)))))
+       (remove #{1487 4817 8147})
+       (apply #(flatten (map pelib/digit-list [% (+ % 3330) (+ % 6660)])))
+       (pelib/from-digit-list)))
+
 (defn pe067
   "Find the maximum sum from the top of a given triangle to the bottom.
   Same as problem 18, but with a larger try given in a file."
