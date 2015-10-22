@@ -781,6 +781,14 @@
                       :when (player1-won? player1 player2)]
                   :win)))))
 
+(defn pe055
+  ""
+  [] nil)
+
+(defn pe056
+  ""
+  [] nil)
+
 (defn pe067
   "Find the maximum sum from the top of a given triangle to the bottom.
   Same as problem 18, but with a larger try given in a file."
@@ -790,6 +798,14 @@
          (reduce merge-rows)
          (first))))
 
+(defn pe069
+  ""
+  [] nil)
+
 (defn pe076
   "How many distinct ways can you count to 100 with at least 2 positive integers."
   [] (make-change (range 1 100) 100))
+
+(defn pe092
+  ""
+  [] nil)
