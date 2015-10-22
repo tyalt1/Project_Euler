@@ -681,6 +681,32 @@
              v
              (recur (inc c)))))))
 
+(defn pe051
+  "Find smallest prime which, by replacing any of the digits, results in 8 primes."
+  [] nil)
+
+(defn pe052
+  "Find the smallest x so that x, 2x, 3x, 4x, 5x, & 6x contain the same digits."
+  [] (letfn [(dvec [n] (sort (pelib/digit-list n)))
+             (same-digits? [x] (= (dvec x)
+                                  (dvec (* 2 x))
+                                  (dvec (* 3 x))
+                                  (dvec (* 4 x))
+                                  (dvec (* 5 x))
+                                  (dvec (* 6 x))))]
+       (first (filter same-digits? (iterate inc 1)))))
+
+(defn pe053
+  "How many (repeats are allowed) combinations (n choose r) for 1<=n<=100
+  are greater than 1 million."
+  [] (letfn [(choose [n r] (/ (pelib/fact n) (* (pelib/fact r)
+                                                (pelib/fact (- n r)))))]
+       (count (for [n (range 1 101)
+                    r (range 1 n)
+                    c [(choose n r)]
+                    :when (> c 1e6)]
+                c))))
+
 (defn pe067
   "Find the maximum sum from the top of a given triangle to the bottom.
   Same as problem 18, but with a larger try given in a file."
