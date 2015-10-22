@@ -396,7 +396,7 @@
 
 (defn pe026
   "Find 0<d<1000 where 1/d results in the longest repeating cycle of digits.
-  Using Fermat's"
+  Using Fermat's little theorem, 10^n-1 mod d = 0 (I have no idea how this works)"
   [] (letfn [(find-decimal-repeat [d] (loop [period 1]
                                         (if (= 1 (mod (math/expt 10 period) d))
                                           period
@@ -557,7 +557,7 @@
 (defn pe040
   "Concatenate all the positive integers together. If dn is the nth digit,
   find d1 * d10 * d1e2 * d1e3 * d1e4 * d1e5 * d1e6"
-  [] (let [lazy-idf (flatten (map pelib/digit-list (iterate inc 0)))]
+  [] (let [lazy-idf (mapcat pelib/digit-list (iterate inc 0))]
        (apply * (map (partial nth lazy-idf) '(1 10 1e2 1e3 1e4 1e5 1e6)))))
 
 (defn pe041
@@ -665,8 +665,21 @@
        (filter #(= (sort (pelib/digit-list %))
                    (sort (pelib/digit-list (+ % 6660)))))
        (remove #{1487 4817 8147})
-       (apply #(flatten (map pelib/digit-list [% (+ % 3330) (+ % 6660)])))
+       (apply #(mapcat pelib/digit-list [% (+ % 3330) (+ % 6660)]))
        (pelib/from-digit-list)))
+
+(defn pe050
+  "Which prime below 1 million can be written as the sum of the most consecutive primes?
+  (I don't know how this works)"
+  [] (let [prime-sums (reductions + (pelib/lazy-prime))
+           goal 1e6]
+       (loop [c 1]
+         (let [bots (reverse (take c prime-sums))
+               tops (take c (reverse (take-while #(> goal (- % (last bots)))
+                                                 (rest prime-sums))))]
+           (if-let [v (some #(if (pelib/prime? %) % nil) (map - tops bots))]
+             v
+             (recur (inc c)))))))
 
 (defn pe067
   "Find the maximum sum from the top of a given triangle to the bottom.
