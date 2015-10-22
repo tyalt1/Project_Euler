@@ -707,6 +707,80 @@
                     :when (> c 1e6)]
                 c))))
 
+(defn pe054
+  "Given 100 poker hands in p054_poker.txt, how many rounds did player 1 win."
+  [] (let [value {\2 2, \3 3, \4 4, \5 5, \6 6, \7 7, \8 8, \9 9, \T 10, \J 11, \Q 12, \K 13, \A 14}
+           suits {\S :spades, \C :clubs, \D :diamonds, \H :hearts}]
+       (letfn [(check-royalflush [hand] (if (and (= (map first hand) '(10 11 12 13 14))
+                                                 (apply = (map second hand)))
+                                          14
+                                          0))
+               (check-straightflush [hand] (let [c (ffirst hand)]
+                                             (if (and (= (map first hand)
+                                                         (range c (+ 5 c)))
+                                                      (apply = (map second hand)))
+                                               (first (last hand))
+                                               0)))
+               (check-4kind [hand] (let [[c freq] (first (filter (comp #{4} val) (frequencies (map first hand))))]
+                                     (if (nil? c)
+                                       0
+                                       c)))
+               (check-fullhouse [hand] (if (or (and (apply = (map first (take 2 hand)))
+                                                    (apply = (map first (drop 2 hand))))
+                                               (and (apply = (map first (take 3 hand)))
+                                                    (apply = (map first (drop 3 hand)))))
+                                         (first (last hand))
+                                         0))
+               (check-flush [hand] (if (apply = (map second hand))
+                                     (first (last hand))
+                                     0))
+               (check-straight [hand] (let [c (ffirst hand)]
+                                        (if (= (map first hand)
+                                               (range c (+ 5 c)))
+                                          (first (last hand))
+                                          0)))
+               (check-3kind [hand] (let [[c freq] (first (filter (comp #{3} val) (frequencies (map first hand))))]
+                                     (if (nil? c)
+                                       0
+                                       c)))
+               (check-2pair [hand] (let [pairs (filter (comp #{2} val) (frequencies (map first hand)))]
+                                     (if (= 2 (count pairs))
+                                       (first (last pairs))
+                                       0)))
+               (check-pair [hand] (let [pairs (filter (comp #{2} val) (frequencies (map first hand)))]
+                                    (if (empty? pairs)
+                                      0
+                                      (first (last pairs)))))
+               (high-card [hand] (first (last hand)))
+               (player1-won? [p1 p2] (let [fvec [check-royalflush
+                                                 check-straightflush
+                                                 check-4kind
+                                                 check-fullhouse
+                                                 check-flush
+                                                 check-straight
+                                                 check-3kind
+                                                 check-2pair
+                                                 check-pair
+                                                 high-card]]
+                                       (loop [i 0] (let [p1score ((fvec i) p1)
+                                                         p2score ((fvec i) p2)]
+                                                     (cond
+                                                       (< p1score p2score) false
+                                                       (> p1score p2score) true
+                                                       :else (recur (inc i)))))))]
+         (count (for [round (string/split (slurp "resources/p054_poker.txt") #"\n")
+                      :let [[c0 c1 c2 c3 c4 c5 c6 c7 c8 c9] (string/split round #" ")
+                            player1 (sort-by first
+                                             (map #(vector (value (first %))
+                                                           (suits (second %)))
+                                                  [c0 c1 c2 c3 c4]))
+                            player2 (sort-by first
+                                             (map #(vector (value (first %))
+                                                           (suits (second %)))
+                                                  [c5 c6 c7 c8 c9]))]
+                      :when (player1-won? player1 player2)]
+                  :win)))))
+
 (defn pe067
   "Find the maximum sum from the top of a given triangle to the bottom.
   Same as problem 18, but with a larger try given in a file."
