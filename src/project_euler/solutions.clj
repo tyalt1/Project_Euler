@@ -782,12 +782,19 @@
                   :win)))))
 
 (defn pe055
-  ""
-  [] nil)
+  "A Lychrel number is a number that will not be palindromic when it is reversed
+  and added to itself. How many Lychrel numbers are below 10 thousand?"
+  [] (letfn [(lychrel-test-seq [n] (rest (iterate #(+ % (pelib/from-digit-list (reverse (pelib/digit-list %)))) (bigint n))))
+             (lychrel? [n] (not-any? (comp pelib/seq-palindrome? pelib/digit-list) (take 50 (lychrel-test-seq n))))]
+	    (count (filter lychrel? (range 1 1e4)))))
 
 (defn pe056
-  ""
-  [] nil)
+  "Let a,b < 100, what is the maximum digit sum of a^b?"
+  [] (->>
+          (for [a (range 1 100), b (range 1 100)] (math/sqrt a b))
+		  (map (comp (partial apply +) pelib/digit-list))
+		  (apply max)
+		  (long)))
 
 (defn pe067
   "Find the maximum sum from the top of a given triangle to the bottom.
@@ -799,13 +806,16 @@
          (first))))
 
 (defn pe069
-  ""
-  [] nil)
+  "Euler's Totient function, phi(n) returns numbers that are less then n and relatively prime to n.
+  For what n < 1 million is n/phi(n) maximum."
+  [] (last (take-while #(< %  1e6) (reductions * (pelib/lazy-prime)))))
 
 (defn pe076
   "How many distinct ways can you count to 100 with at least 2 positive integers."
   [] (make-change (range 1 100) 100))
 
 (defn pe092
-  ""
-  [] nil)
+  "A chain is made by adding the square of the digits in a number.
+  These numbers converge on either 1 or 89.
+  How many starting number below ten million arrive at 89?"
+  [] (letfn []))
