@@ -784,14 +784,20 @@
 (defn pe055
   "A Lychrel number is a number that will not be palindromic when it is reversed
   and added to itself. How many Lychrel numbers are below 10 thousand?"
-  [] (letfn [(lychrel-test-seq [n] (rest (iterate #(+ % (pelib/from-digit-list (reverse (pelib/digit-list %)))) (bigint n))))
-             (lychrel? [n] (not-any? (comp pelib/seq-palindrome? pelib/digit-list) (take 50 (lychrel-test-seq n))))]
+  [] (letfn [(lychrel-test-seq [n]
+                               (rest
+                                (iterate #(+ % (pelib/from-digit-list
+                                                (reverse (pelib/digit-list %))))
+                                         (bigint n))))
+             (lychrel? [n] (not-any? (comp pelib/seq-palindrome?
+                                           pelib/digit-list)
+                                     (take 50 (lychrel-test-seq n))))]
 	    (count (filter lychrel? (range 1 1e4)))))
 
 (defn pe056
   "Let a,b < 100, what is the maximum digit sum of a^b?"
   [] (->>
-          (for [a (range 1 100), b (range 1 100)] (math/sqrt a b))
+          (for [a (range 1 100), b (range 1 100)] (math/expt a b))
 		  (map (comp (partial apply +) pelib/digit-list))
 		  (apply max)
 		  (long)))
@@ -806,8 +812,8 @@
          (first))))
 
 (defn pe069
-  "Euler's Totient function, phi(n) returns numbers that are less then n and relatively prime to n.
-  For what n < 1 million is n/phi(n) maximum."
+  "Euler's Totient function, phi(n) returns numbers that are less then n and
+  relatively prime to n. For what n < 1 million is n/phi(n) maximum."
   [] (last (take-while #(< %  1e6) (reductions * (pelib/lazy-prime)))))
 
 (defn pe076
@@ -818,4 +824,9 @@
   "A chain is made by adding the square of the digits in a number.
   These numbers converge on either 1 or 89.
   How many starting number below ten million arrive at 89?"
-  [] (letfn []))
+  [] (letfn [(f [n] (if (or (= 1 n) (= 89 n))
+                      n
+                      (recur (apply + (map #(* % %) (pelib/digit-list n))))))]
+       (count (for [i (range 1 1e7)
+                    :when (= 89 (f i))]
+                89))))
