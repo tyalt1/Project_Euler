@@ -1,18 +1,18 @@
 # Project Euler
 
+![Build Status](https://travis-ci.org/tyalt1/Project_Euler.svg)
+
+![Project Euler Badge](https://projecteuler.net/profile/tyalt1.png)
+
 Collection of all my solutions to problems on
 [Project Euler](https://projecteuler.net)
 .
 
-![Project Euler Badge](https://projecteuler.net/profile/tyalt1.png)
-
 All solutions are written in the
 [Clojure](http://clojure.org)
-programming language.
-
-This project uses the
+programming language and use the
 [Leiningen](http://leiningen.org)
-automatic build system.
+build system to run.
 
 ## Usage
 
