@@ -1,8 +1,7 @@
-# Project Euler
+# Project Euler ![Build Status](https://travis-ci.org/tyalt1/Project_Euler.svg)
 
-![Build Status](https://travis-ci.org/tyalt1/Project_Euler.svg)
-
-![Project Euler Badge](https://projecteuler.net/profile/tyalt1.png)
+<img src="https://projecteuler.net/profile/tyalt1.png"
+ title="Project Euler ID" align="right" />
 
 Collection of all my solutions to problems on
 [Project Euler](https://projecteuler.net)
@@ -10,9 +9,9 @@ Collection of all my solutions to problems on
 
 All solutions are written in the
 [Clojure](http://clojure.org)
-programming language and use the
+programming language and are built using
 [Leiningen](http://leiningen.org)
-build system to run.
+.
 
 ## Usage
 
