@@ -2,7 +2,9 @@
   (:require [project-euler.lib :as pelib]
             [clojure.string :as string :only (split replace)]
             [clojure.math.numeric-tower :as math :only (expt sqrt)]
-            [clojure.math.combinatorics :as combo :only (nth-permutation permutations)]))
+            [clojure.math.combinatorics :as combo :only (nth-permutation
+                                                         permutations
+                                                         subsets)]))
 
 (defn pe001
   "Sum of all the multiples of 3 and 5 below 1000."
@@ -683,7 +685,20 @@
 
 (defn pe051
   "Find smallest prime which, by replacing any of the digits, results in 8 primes."
-  [] nil)
+  [] (letfn [(duplicate-digits [x] (remove nil?
+                                           (map (fn [[k v]] (if (> v 1) k))
+                                                (frequencies
+                                                 (butlast x)))))
+             (underscores [targets] (for [t targets
+                                          tx [(pelib/digit-list t)]
+                                          d (duplicate-digits tx)
+                                          powerset (combo/subsets
+                                                    (remove nil?
+                                                            (map-indexed (fn [[idx x]]
+                                                                           (if (= x d) idx))
+                                                                         (butlast tx))))]
+                                      (map #(if (contains? powerset %) \_ %) tx)))]
+       (first (filter (fn [[k v]] (> v 8)) (frequencies (drop-while #(< % 1e5) (pelib/lazy-prime)))))))
 
 (defn pe052
   "Find the smallest x so that x, 2x, 3x, 4x, 5x, & 6x contain the same digits."
@@ -792,15 +807,14 @@
              (lychrel? [n] (not-any? (comp pelib/seq-palindrome?
                                            pelib/digit-list)
                                      (take 50 (lychrel-test-seq n))))]
-	    (count (filter lychrel? (range 1 1e4)))))
+       (count (filter lychrel? (range 1 1e4)))))
 
 (defn pe056
   "Let a,b < 100, what is the maximum digit sum of a^b?"
-  [] (->>
-          (for [a (range 1 100), b (range 1 100)] (math/expt a b))
-		  (map (comp (partial apply +) pelib/digit-list))
-		  (apply max)
-		  (long)))
+  [] (->> (for [a (range 1 100), b (range 1 100)] (math/expt a b))
+       (map (comp (partial apply +) pelib/digit-list))
+       (apply max)
+       (long)))
 
 (defn pe067
   "Find the maximum sum from the top of a given triangle to the bottom.
