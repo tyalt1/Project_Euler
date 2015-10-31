@@ -1,5 +1,6 @@
 (ns project-euler.lib
-  (:require [clojure.set :as set :only (difference)]
+  (:require [project-euler.sieve :as sieve]
+            [clojure.set :as set :only (difference)]
             [clojure.math.numeric-tower :as math :only (sqrt)]))
 
 (defn- truncate-to-long
@@ -73,9 +74,9 @@
   ([] (lazy-fib 1 1))
   ([x y] (map first (iterate (fn [[a b]] [b (+ a b)]) [x y]))))
 
-(defn lazy-prime
+(def lazy-prime
   "Lazy sequence of prime numbers."
-  [] (filter prime? (iterate inc 2)))
+  sieve/lazy-primes)
 
 (defn lazy-triangular
   "Lazy sequence of triangular numbers."

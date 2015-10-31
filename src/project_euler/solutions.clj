@@ -685,20 +685,36 @@
 
 (defn pe051
   "Find smallest prime which, by replacing any of the digits, results in 8 primes."
-  [] (letfn [(duplicate-digits [x] (remove nil?
-                                           (map (fn [[k v]] (if (> v 1) k))
-                                                (frequencies
-                                                 (butlast x)))))
+  [] (letfn [(duplicate-digits [x] (mapcat (fn [[k v]] (if (> v 1) [k]))
+                                           (frequencies
+                                            (butlast
+                                             (pelib/digit-list x)))))
              (underscores [targets] (for [t targets
                                           tx [(pelib/digit-list t)]
-                                          d (duplicate-digits tx)
-                                          powerset (combo/subsets
-                                                    (remove nil?
-                                                            (map-indexed (fn [[idx x]]
-                                                                           (if (= x d) idx))
-                                                                         (butlast tx))))]
-                                      (map #(if (contains? powerset %) \_ %) tx)))]
-       (first (filter (fn [[k v]] (> v 8)) (frequencies (drop-while #(< % 1e5) (pelib/lazy-prime)))))))
+                                          d (duplicate-digits t)
+                                          indices [(->> (butlast tx)
+                                                     (map-indexed vector)
+                                                     (filter (fn [[idx x]] (= x d)))
+                                                     (map first))]
+                                          powerset (->> (combo/subsets indices)
+                                                     (filter (comp (partial < 1)
+                                                                   count)))]
+                                      (map-indexed (fn [idx x] (if (some (partial = idx)
+                                                                         powerset)
+                                                                 \_
+                                                                 x))
+                                                   tx)))]
+       (->>
+         (filter (fn [[k v]] (= v 8)) (->> (pelib/lazy-prime)
+                                        (take-while #(< % 1e6))
+                                        (drop-while #(< % 1e5))
+                                        (remove (comp empty?
+                                                      duplicate-digits))
+                                        (underscores)
+                                        (frequencies)))
+         (ffirst)
+         (replace {\_ 1})
+         (pelib/from-digit-list))))
 
 (defn pe052
   "Find the smallest x so that x, 2x, 3x, 4x, 5x, & 6x contain the same digits."
