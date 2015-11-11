@@ -850,6 +850,48 @@
   "How many distinct ways can you count to 100 with at least 2 positive integers."
   [] (make-change (range 1 100) 100))
 
+(defn pe089
+  "Given a text file of improper roman numerals.
+  Find the number of characters saved by replacing them with proper numberals."
+  [] (let [roman {"I"  1
+                  "IV" 4
+                  "V"  5
+                  "IX" 9
+                  "X"  10
+                  "XL" 40
+                  "L"  50
+                  "XC" 90
+                  "C"  100
+                  "CD" 400
+                  "D"  500
+                  "CM" 900
+                  "M"  1000}
+           text (string/split (slurp "resources/p089_roman.txt") #"\n")
+           numbers (for [t text]
+                     (apply +
+                       (map roman
+                            (re-seq #"I[VX]|X[LC]|C[DM]|I|V|X|L|C|D|M" t))))
+           nneg? (comp not neg?)
+           num->rn (fn [n] (loop [n n, s ""]
+                             (cond
+                               (nneg? (- n 1000)) (recur (- n 1000) (str s "M"))
+                               (nneg? (- n 900)) (recur (- n 900) (str s "CM"))
+                               (nneg? (- n 500)) (recur (- n 500) (str s "D"))
+                               (nneg? (- n 400)) (recur (- n 400) (str s "CD"))
+                               (nneg? (- n 100)) (recur (- n 100) (str s "C"))
+                               (nneg? (- n 90)) (recur (- n 90) (str s "XC"))
+                               (nneg? (- n 50)) (recur (- n 50) (str s "L"))
+                               (nneg? (- n 40)) (recur (- n 40) (str s "XL"))
+                               (nneg? (- n 10)) (recur (- n 10) (str s "X"))
+                               (nneg? (- n 9)) (recur (- n 9) (str s "IX"))
+                               (nneg? (- n 5)) (recur (- n 5) (str s "V"))
+                               (nneg? (- n 4)) (recur (- n 4) (str s "IV"))
+                               (nneg? (- n 1)) (recur (- n 1) (str s "I"))
+                               :else s)))]
+       (apply + (map (fn [t n] (- (count t) (count (num->rn n))))
+                     text
+                     numbers))))
+
 (defn pe092
   "A chain is made by adding the square of the digits in a number.
   These numbers converge on either 1 or 89.
