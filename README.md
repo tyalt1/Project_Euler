@@ -1,7 +1,9 @@
-# Project Euler ![Build Status](https://travis-ci.org/tyalt1/Project_Euler.svg)
+# Project Euler [![Build Status](https://travis-ci.org/tyalt1/Project_Euler.svg?branch=master)](https://travis-ci.org/tyalt1/Project_Euler)
 
+<a href="https://projecteuler.net/archives">
 <img src="https://projecteuler.net/profile/tyalt1.png"
  title="Project Euler ID" align="right" />
+</a>
 
 Collection of all my solutions to problems on
 [Project Euler](https://projecteuler.net)
