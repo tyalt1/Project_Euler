@@ -390,11 +390,10 @@
 
 (defn pe025
   "The first fibonacci number with 1000 digits."
-  [] (let [digit-count (comp count str)]
-       (->> (pelib/lazy-fib 1N 1N)
-         (map vector (iterate inc 1))
-         (filter (fn [[_ f]] (>= (digit-count f) 1e3)))
-         (ffirst))))
+  [] (->> (pelib/lazy-fib 1N 1N)
+       (map vector (iterate inc 1))
+       (filter (fn [[_ f]] (>= (pelib/digit-count f) 1e3)))
+       (ffirst)))
 
 (defn pe026
   "Find 0<d<1000 where 1/d results in the longest repeating cycle of digits.
@@ -831,6 +830,12 @@
        (map (comp (partial apply +) pelib/digit-list))
        (apply max)
        (long)))
+
+(defn pe057
+  ""
+  [] (count (filter #(> (pelib/digit-count (numerator %))
+                        (pelib/digit-count (denominator %)))
+                    (take 1000 (map inc (iterate #(/ 1 (+ 2 %)) 1/2))))))
 
 (defn pe067
   "Find the maximum sum from the top of a given triangle to the bottom.

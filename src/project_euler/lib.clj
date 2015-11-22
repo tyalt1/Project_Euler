@@ -27,6 +27,9 @@
                  (truncate-to-long n)
                  (recur (rest digits) (+ (* n base) (first digits)))))))
 
+(def digit-count
+  "Returns the number of digits in n." (comp count digit-list))
+
 ;;Boolean Checks
 (def prime?
   "Returns true if n is prime."
