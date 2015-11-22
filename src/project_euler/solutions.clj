@@ -832,10 +832,13 @@
        (long)))
 
 (defn pe057
-  ""
+  "sqrt(2) = 1 + 1/(2 + 1/(2 + 1/(2 + ...)))
+  Expansions: 1 + 1/2 = 3/2, 1 + 1/(2 + 1/2) = 7/5, etc.
+  In the first 1000 expansions, how many fractions contain
+  a numerator with more digits than it's denominator?"
   [] (count (filter #(> (pelib/digit-count (numerator %))
                         (pelib/digit-count (denominator %)))
-                    (take 1000 (map inc (iterate #(/ 1 (+ 2 %)) 1/2))))))
+                    (take 1e3 (map inc (iterate #(/ 1 (+ 2 %)) 1/2))))))
 
 (defn pe067
   "Find the maximum sum from the top of a given triangle to the bottom.
