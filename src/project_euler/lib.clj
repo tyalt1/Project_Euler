@@ -28,7 +28,8 @@
                  (recur (rest digits) (+ (* n base) (first digits)))))))
 
 (def digit-count
-  "Returns the number of digits in n." (comp count digit-list))
+  "Returns the number of digits in n."
+  (comp count digit-list))
 
 ;;Boolean Checks
 (def prime?
@@ -68,7 +69,7 @@
 
 (defn hexagonal?
   "Returns true if n is hexagonal."
-  [n] (zero? (rem (inc (Math/sqrt (inc (* 8 n)))) 4)))
+  [n] (zero? (rem (inc (math/sqrt (inc (* 8 n)))) 4)))
 
 ;;Lazy Sequences
 (defn lazy-fib

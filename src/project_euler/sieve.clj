@@ -25,7 +25,8 @@
   (toString [this] (if (and (nil? v) (nil? cont)) "()" (.toString (seq (map identity this))))))
 
 (defn lazy-primes
-  "Computes the unbounded sequence of primes using a Sieve of Eratosthenes algorithm modified from Bird. Extracted from RosettaStone. Original name of the function is primes-treeFoldingx. http://rosettacode.org/wiki/Sieve_of_Eratosthenes#Clojure"
+  "Computes the unbounded sequence of primes using a Sieve of Eratosthenes algorithm modified from Bird. Extracted from RosettaStone.
+  Original name of the function is primes-treeFoldingx. http://rosettacode.org/wiki/Sieve_of_Eratosthenes#Clojure"
   []
   (letfn [(mltpls [p] (let [p2 (* 2 p)]
                         (letfn [(nxtmltpl [c]
@@ -49,12 +50,3 @@
     (do (def oddprms (->CIS 3 (fn [] (let [cmpsts (-> oddprms (allmtpls) (mrgmltpls))]
                                       (minusStrtAt 5 cmpsts)))))
         (->CIS 2 (fn [] oddprms)))))
-
-; (defn lazy-odd-composites
-;   "Computes the unbounded sequence of odd composites using Bird's primes-treeFoldingx."
-;   []
-;   (letfn [(helper [num coll]
-;             (if (= num (first coll))
-;               (recur (+ 2 num) (rest coll))
-;               (cons num (lazy-seq (helper (+ 2 num) coll)))))]
-;     (helper 9 (nthnext (lazy-primes) 4))))
