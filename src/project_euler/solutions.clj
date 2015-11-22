@@ -840,6 +840,14 @@
                         (pelib/digit-count (denominator %)))
                     (take 1e3 (map inc (iterate #(/ 1 (+ 2 %)) 1/2))))))
 
+(defn pe063
+  "How many n-digit integers exist which are also an nth power."
+  [] (count (for [i (range 1 10)
+                  n (range 1 30)
+                  digits [(pelib/digit-count (math/expt i n))]
+                  :when (= n digits)]
+              i)))
+
 (defn pe067
   "Find the maximum sum from the top of a given triangle to the bottom.
   Same as problem 18, but with a larger try given in a file."
