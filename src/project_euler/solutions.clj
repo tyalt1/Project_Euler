@@ -840,6 +840,19 @@
                         (pelib/digit-count (denominator %)))
                     (take 1e3 (map inc (iterate #(/ 1 (+ 2 %)) 1/2))))))
 
+(defn pe058
+  "What is the side length of a spiral (described in pe028) where
+  the 10% of the diagonals are prime."
+  [] (let [spiral (reductions + 1 (mapcat #(repeat 4 %)
+                                          (iterate (partial + 2) 2)))
+           prime% (map /
+                       (reductions + (map #(if (pelib/prime? %) 1 0)
+                                          (rest spiral)))
+                       (iterate inc 1))
+           cornerprime% (map last (partition 4 prime%))
+           side-cornerprime% (map vector (iterate (partial + 2) 3) cornerprime%)]
+       (ffirst (drop-while #(> (second %) 0.1) side-cornerprime%))))
+
 (defn pe063
   "How many n-digit integers exist which are also an nth power."
   [] (count (for [i (range 1 10)
